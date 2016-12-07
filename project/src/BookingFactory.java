@@ -6,18 +6,20 @@ public class BookingFactory
     public void bookTravel(String type)
     {
 
+        TravelFactory newTravel;
+
         switch (type)
         {
             case "Air travel":
-                //newTravel = new Airport();
+                newTravel = new AirTravelFactory();
                 break;
             case "Cruise":
-                //newTravel = new Airport();
+                newTravel = new SeaTravelFactory();
                 break;
             case "Train":
-                //newTravel = new Airport();
+                newTravel = new LandTravelFactory();
                 break;
         }
-        //return newTravel;
+
     }
 }
