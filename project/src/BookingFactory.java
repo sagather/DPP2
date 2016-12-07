@@ -5,7 +5,7 @@ public class BookingFactory
 {
     public void bookTravel(String type)
     {
-        //Travel newTravel = null;
+
         switch (type)
         {
             case "Air travel":
