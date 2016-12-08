@@ -15,6 +15,8 @@ public class SampleClient{
         int choice = 0;
         Scanner kb = new Scanner(System.in);
 
+        System.out.println("----------------Admin Menu-------------------\n");
+
         System.out.println("------------Air Travel Options---------------");
         System.out.println("\n1:  Create a new Airport");
         System.out.println("2:  Create a new Airline");
@@ -68,12 +70,6 @@ public class SampleClient{
 
             System.out.println("That is not a valid response.");
             c = kb.nextInt();
-
-        }
-
-        if(c == 10){
-
-
 
         }
 
