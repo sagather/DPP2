@@ -76,7 +76,8 @@ public class SampleClient{
         System.out.println("5:  Book a seat on a flight");
         System.out.println("6:  Book a seat by seat class and window/aisle preference");
         System.out.println("7:  Display Airport System details");
-        System.out.println("8:  Write system details to file\n");
+        System.out.println("8:  Write system details to file");
+        System.out.println("9:  Display Admin UI\n");
         System.out.println("---------------End UI, press 0 to quit--------");
 
         choice = kb.nextInt();
