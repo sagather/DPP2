@@ -11,6 +11,7 @@ public class SampleClient{
 
             File file = FileReader.openFile("file");
             String[] construction = FileReader.readFile(file);
+            FileParser.parseAirports(construction);
 
         }
         catch (FileNotFoundException e){
@@ -25,7 +26,7 @@ public class SampleClient{
 
     }
 
-    public static void displayUI(){
+    public static void displayAdminUI(){
 
         int choice = 0;
         Scanner kb = new Scanner(System.in);
@@ -59,6 +60,27 @@ public class SampleClient{
             System.exit(0);
 
         }
+
+    }
+
+    public static void displayUI(){
+
+        int choice;
+        Scanner kb = new Scanner(System.in);
+
+        System.out.println("---------------General UI--------------------");
+        System.out.println("\n1:  Create Airport System with input file");
+        System.out.println("2:  Change the price of seats in a flight section");
+        System.out.println("3:  Search for seats");
+        System.out.println("4:  Change seat class pricing for flight destination [ ] and arrival [ ]");
+        System.out.println("5:  Book a seat on a flight");
+        System.out.println("6:  Book a seat by seat class and window/aisle preference");
+        System.out.println("7:  Display Airport System details");
+        System.out.println("8:  Write system details to file\n");
+        System.out.println("---------------End UI, press 0 to quit--------");
+
+        choice = kb.nextInt();
+
 
     }
 
