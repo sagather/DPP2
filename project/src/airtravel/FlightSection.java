@@ -6,8 +6,6 @@ package airtravel;
 
 import java.util.*;
 public class FlightSection {
-
-
     private ArrayList<Seat> seats = new ArrayList<Seat>();
     private SeatClass sClass;
     private int rows;
