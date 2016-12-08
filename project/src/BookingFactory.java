@@ -6,8 +6,6 @@ public class BookingFactory
     public void bookTravel(String type)
     {
         TravelFactory newTravel;
-        //lolhiyo
-
         switch (type)
         {
             case "Air travel":

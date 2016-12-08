@@ -4,7 +4,8 @@ import java.util.*;
 /**
  * Created by bcxtr on 12/7/2016.
  */
-public class FileReader {
+//TODO: Sam, create parser for file,output file
+    public class FileReader {
 
     public static File openFile(String fileName) throws FileNotFoundException{
 

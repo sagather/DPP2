@@ -7,4 +7,6 @@ package landtravel;
 //Equal to Airport
 
 public class Train {
+    //TODO: Together
+
 }
