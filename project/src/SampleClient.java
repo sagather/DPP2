@@ -69,9 +69,32 @@ public class SampleClient{
 
         }
 
-        if(c == 0){
+        switch(c){
 
-            System.exit(0);
+            case 0:  System.exit(0);
+                    break;
+            case 1:  createFromFile();
+                    break;
+            case 2:
+                    break;
+            case 3:
+                    break;
+            case 4:
+                    break;
+            case 5:
+                    break;
+            case 6:
+                    break;
+            case 7:
+                    break;
+            case 8:
+                    break;
+            case 9:
+                    break;
+
+            default:
+                System.exit(0);
+
 
         }
 
@@ -81,7 +104,7 @@ public class SampleClient{
         //Open file
         try{
 
-            File file = FileReader.openFile("file");
+            File file = FileReader.openFile("input.txt");
             String[] construction = FileReader.readFile(file);
             FileParser.parseAirports(construction);
 
