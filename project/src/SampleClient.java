@@ -31,13 +31,13 @@ public class SampleClient{
         Scanner kb = new Scanner(System.in);
 
         System.out.println("------------Air Travel Options---------------");
-        System.out.println("/n1:  Create a new Airport");
+        System.out.println("\n1:  Create a new Airport");
         System.out.println("2:  Create a new Airline");
-        System.out.println("3:  Create a new Flight/n");
+        System.out.println("3:  Create a new Flight");
         System.out.println("4:  Display Current State");
         System.out.println();
         System.out.println("------------Sea Travel Options----------------");
-        System.out.println("/n5:  Create a new Cruise");
+        System.out.println("\n5:  Create a new Cruise");
         System.out.println("6:  Create a new Port");
         System.out.println("7:  Create a new Trip");
         System.out.println("8:  Create a new Ship");
@@ -54,8 +54,11 @@ public class SampleClient{
 
         }
 
+        if(choice == 0){
 
+            System.exit(0);
 
+        }
 
     }
 
