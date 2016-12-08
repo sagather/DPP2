@@ -7,13 +7,15 @@ public class Seat {
 
     private int row;
     private char seat;
+    private char type;//w = window a = aisle n=nothing
     private String assignment;
     private boolean assigned = false;
 
-    public Seat(int iRow, char iSeat){
+    public Seat(int iRow, char iSeat, char type){
 
         this.row = iRow;
         this.seat = iSeat;
+        this.type = type;//window, aisle or none
     }
 
     public String toString(){
@@ -37,6 +39,10 @@ public class Seat {
 
     public char getCol(){
         return this.seat;
+    }
+
+    public char getType(){
+        return this.type;
     }
 
 }

@@ -14,22 +14,25 @@ public class FlightSection {
     private int cols;
     private String airline;
     private String flightNumber;
+    private char sectType;
 
-    public FlightSection(String iAirline, String iFlightNumber, int seatRows, int seatCols, SeatClass isClass){
+    public FlightSection(String iAirline, String iFlightNumber, int seatRows, char cols, SeatClass isClass){
 
         try{
-
-            if(seatRows > 100 || seatCols > 10 || seatRows < 1 || seatCols < 1){
+            if(seatRows > 100 ||  seatRows < 1){
                 throw new IllegalArgumentException();
             }
 
+            int seatCols = sectType(cols);
             for(int i = 1; i <= seatRows; i++){
                 char z = 'a';
-                for(int j = 0; j < seatCols; j++){   //not sure if this will work... in theory it will, but...
-                    seats.add(new Seat(i, z));
+                for(int j = 0; j < seatCols; j++){
+                    char type = winOrAisle(z);
+                    seats.add(new Seat(i, z, type));
                     z++;
                 }
             }
+
             this.airline = iAirline;
             this.flightNumber = iFlightNumber;
             this.sClass = isClass;
@@ -41,6 +44,123 @@ public class FlightSection {
         }
     }
 
+    public char winOrAisle(char c)
+    {
+        try {
+            if (sectType == 'S') //3 columns (a-c)
+            {
+                if(c == 'a')
+                {
+                    return 'w';
+                }
+                else if(c == 'b')
+                {
+                    return 'a';
+                }
+                else if(c == 'c')
+                {
+                   return 'w';
+                }
+            }
+            else if (sectType == 'M') //4 columns (a-d)
+            {
+                if(c == 'a')
+                {
+                    return 'w';
+                }
+                else if(c == 'b')
+                {
+                    return 'a';
+                }
+                else if(c == 'c')
+                {
+                    return 'a';
+                }
+                else if(c == 'd')
+                {
+                    return 'w';
+                }
+            }
+            else if (sectType == 'W') //10 columns (a -j)
+            {
+                if(c == 'a')// 1 window
+                {
+                    return 'w';
+                }
+                else if(c == 'b')// 2
+                {
+                    return 'n';
+                }
+                else if(c == 'c')// 3 aisle
+                {
+                    return 'a';
+                }
+                else if(c == 'd')// 4 aisle
+                {
+                    return 'a';
+                }
+                else if(c == 'e')// 5
+                {
+                    return 'n';
+                }
+                else if(c == 'f')// 6
+                {
+                    return 'n';
+                }
+                else if(c == 'g')// 7 aisle
+                {
+                    return 'a';
+                }
+                else if(c == 'h')// 8 aisle
+                {
+                    return 'a';
+                }
+                else if(c == 'i')// 9
+                {
+                    return 'n';
+                }
+                else if(c == 'j')// 10 window
+                {
+                    return 'w';
+                }
+            }
+            else
+            {
+                throw new IllegalArgumentException("That seat format given does not exist.");
+            }
+        }
+        catch (IllegalArgumentException e)
+        {
+            System.out.println("Flight section was not created" + e.getMessage());
+        }
+        return 'n';
+    }
+
+    public int sectType(char col)
+    {
+        try {
+            if (col == 's' || col == 'S') {
+                this.sectType = 'S';
+                return 3;
+            } else if (col == 'm' || col == 'M') {
+                this.sectType = 'M';
+                return 4;
+            } else if (col == 'w' || col == 'W') {
+                this.sectType = 'W';
+                return 10;
+            }
+            else
+            {
+                throw new IllegalArgumentException("The seat format given does not exist.");
+            }
+        }
+        catch (IllegalArgumentException e)
+        {
+            System.out.println("Flight section was not created" + e.getMessage());
+        }
+        return 0;
+    }
+
     public boolean hasAvailableSeats(){
         int i = 0;
         for(Seat s : seats){
@@ -49,6 +169,23 @@ public class FlightSection {
             }
         }
         return i>0;
+    }
+
+    public Seat hasAvailableType(char c)
+    {
+        try {
+            int i = 0;
+            for (Seat s : seats) {
+                if (!s.isAssigned() && s.getType() == c) {
+                    return s;
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println("Something went wrong");
+        }
+        return null;
     }
 
     public void bookSeat(int iRow, char iCol, SeatClass iClass){
