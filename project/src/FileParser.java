@@ -6,23 +6,41 @@ import java.util.ArrayList;
 public class FileParser {
 
     private static String[] airports = new String[4];
-    private String[] airlines = new String[8];
+    private static String[] airlines = new String[8];
+    private static String[] flights = new String[22];
 
-    public static void parseAirports(ArrayList<String> input){
+    public static String[] parseAirports(ArrayList<String> input){
 
         String interim = input.get(0);
         interim = interim.substring(1, interim.length() - 1);
         airports = interim.split(", ");
 
-        //debug section
+        return airports;
+
+    }
+
+    public static String[] parseAirlines(ArrayList<String> input){
+
+        String interim = input.get(0);
+        interim = interim.substring(1, interim.length() - 1);
+        flights = interim.split(", ");
+        parseFlight(flights);
+
         print();
+
+        return airlines;
+
+    }
+
+    public static void parseFlight(String[] flight){
+
 
 
     }
 
     public static void print(){
 
-        for(String s: airports){
+        for(String s: flights){
             System.out.println(s);
         }
 

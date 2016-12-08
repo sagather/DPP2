@@ -13,7 +13,7 @@ public class AirTravelFactory extends TravelFactory{
     private FlightSection section;
     //Acts as System manager for airtravel
 
-    public void createAirport(String iAirport){
+    public void createTransport(String iAirport){
         try
         {
             if (iAirport.length() > 3 || iAirport.length() < 3) {

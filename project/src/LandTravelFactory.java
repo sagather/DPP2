@@ -5,4 +5,11 @@
 import landtravel.*;
 
 public class LandTravelFactory extends TravelFactory{
+
+    public void createTransport(String transport){
+
+
+
+    }
+
 }

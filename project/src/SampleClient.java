@@ -129,11 +129,23 @@ public class SampleClient{
 
     public static void createFromFile(){
         //Open file
+
+        TravelFactory travel = new AirTravelFactory();
+
         try{
 
             File file = FileReader.openFile("C:/Users/bcxtr/IdeaProjects/DPP2/project/src/input.txt");
             ArrayList<String> construction = FileReader.readFile(file);
-            FileParser.parseAirports(construction);
+            String []  airports = FileParser.parseAirports(construction);
+
+            for(String s: airports){
+
+                travel.createTransport(s);
+
+            }
+
+            construction.remove(0);
+            String[] airlines = FileParser.parseAirlines(construction);
 
         }
         catch (FileNotFoundException e){

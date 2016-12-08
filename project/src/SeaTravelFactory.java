@@ -5,4 +5,11 @@
 import seatravel.*;
 
 public class SeaTravelFactory extends TravelFactory{
+
+    public void createTransport(String port){
+
+
+
+    }
+
 }
