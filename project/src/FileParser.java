@@ -11,24 +11,18 @@ public class FileParser {
     public static void parseAirports(ArrayList<String> input){
 
         String interim = input.get(0);
-        int i = 1;
-
-        while(interim.charAt(i) != ']' && i < airports.length){
-            if(interim.charAt(i) == ','){
-                i = i+2;
-            }
-            airports[i] += interim.charAt(i);
-        }
+        interim = interim.substring(1, interim.length() - 1);
+        airports = interim.split(", ");
 
         //debug section
-        print(input);
+        print();
 
 
     }
 
-    public static void print(ArrayList<String> input){
+    public static void print(){
 
-        for(String s: input){
+        for(String s: airports){
             System.out.println(s);
         }
 
