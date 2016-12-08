@@ -21,16 +21,15 @@ import java.util.*;
 
     }
 
-    public static String[] readFile(File inFile)throws FileNotFoundException{
+    public static ArrayList<String> readFile(File inFile)throws FileNotFoundException{
 
         Scanner fileScanner = new Scanner(inFile);
-        int i = 0;
-        String[] constructions = null;
+        ArrayList<String> constructions = new ArrayList<>();
         fileScanner.useDelimiter("\\{");
 
         while(fileScanner.hasNext()){
 
-            constructions[i++] = fileScanner.next();
+            constructions.add(fileScanner.next());
 
         }
 

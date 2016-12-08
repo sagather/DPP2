@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class SampleClient{
@@ -130,8 +131,8 @@ public class SampleClient{
         //Open file
         try{
 
-            File file = FileReader.openFile("input.txt");
-            String[] construction = FileReader.readFile(file);
+            File file = FileReader.openFile("C:/Users/bcxtr/IdeaProjects/DPP2/project/src/input.txt");
+            ArrayList<String> construction = FileReader.readFile(file);
             FileParser.parseAirports(construction);
 
         }
