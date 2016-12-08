@@ -28,9 +28,11 @@ public class SampleClient{
         System.out.println("8:  Create a new Ship");
         System.out.println("9:  Display Current State");
         System.out.println();
-        System.out.println("------Choose your fate (enter 0 to quit)------");
+        System.out.println("--------Choose your fate 0 to exit menu-------");
 
-        choice = kb.nextInt();
+        choice = kb.nextInt() + 10;
+
+        processChoice(choice);
 
     }
 
@@ -62,10 +64,16 @@ public class SampleClient{
 
         Scanner kb = new Scanner(System.in);
 
-        while(c >  9){
+        while(c >  19 ){
 
             System.out.println("That is not a valid response.");
             c = kb.nextInt();
+
+        }
+
+        if(c == 10){
+
+
 
         }
 
@@ -97,6 +105,8 @@ public class SampleClient{
 
 
         }
+
+        displayUI();
 
     }
 

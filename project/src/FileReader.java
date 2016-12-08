@@ -11,7 +11,7 @@ import java.util.*;
 
         File inf = new File(fileName);
 
-        if(inf == null){
+        if(!inf.exists()){
 
             throw new FileNotFoundException("This file was not created");
 
