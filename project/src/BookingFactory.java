@@ -5,7 +5,6 @@ public class BookingFactory
 {
     public void bookTravel(String type)
     {
-
         TravelFactory newTravel;
         //lolhiyo
 
