@@ -26,10 +26,11 @@ import java.util.*;
         Scanner fileScanner = new Scanner(inFile);
         int i = 0;
         String[] constructions = null;
+        fileScanner.useDelimiter("\\{");
 
-        while(fileScanner.hasNextLine()){
+        while(fileScanner.hasNext()){
 
-            constructions[i++] = fileScanner.nextLine();
+            constructions[i++] = fileScanner.next();
 
         }
 
