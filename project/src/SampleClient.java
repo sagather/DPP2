@@ -6,23 +6,7 @@ public class SampleClient{
 
     public static void main(String[] args){
 
-        //Open file
-        try{
-
-            File file = FileReader.openFile("file");
-            String[] construction = FileReader.readFile(file);
-            FileParser.parseAirports(construction);
-
-        }
-        catch (FileNotFoundException e){
-
-            System.out.println(e.getMessage());
-
-        }
-
         displayUI();
-
-
 
     }
 
@@ -48,18 +32,7 @@ public class SampleClient{
 
         choice = kb.nextInt();
 
-        while(choice >  9){
-
-            System.out.println("That is not a valid response.");
-            choice = kb.nextInt();
-
-        }
-
-        if(choice == 0){
-
-            System.exit(0);
-
-        }
+        processChoice(choice);
 
     }
 
@@ -83,6 +56,41 @@ public class SampleClient{
         choice = kb.nextInt();
 
 
+    }
+
+    public static void processChoice(int c){
+
+        Scanner kb = new Scanner(System.in);
+
+        while(c >  9){
+
+            System.out.println("That is not a valid response.");
+            c = kb.nextInt();
+
+        }
+
+        if(c == 0){
+
+            System.exit(0);
+
+        }
+
+    }
+
+    public static void createFromFile(){
+        //Open file
+        try{
+
+            File file = FileReader.openFile("file");
+            String[] construction = FileReader.readFile(file);
+            FileParser.parseAirports(construction);
+
+        }
+        catch (FileNotFoundException e){
+
+            System.out.println(e.getMessage());
+
+        }
     }
 
 
