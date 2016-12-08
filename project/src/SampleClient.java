@@ -32,8 +32,6 @@ public class SampleClient{
 
         choice = kb.nextInt();
 
-        processChoice(choice);
-
     }
 
     public static void displayUI(){
@@ -54,6 +52,8 @@ public class SampleClient{
         System.out.println("---------------End UI, press 0 to quit--------");
 
         choice = kb.nextInt();
+
+        processChoice(choice);
 
 
     }
