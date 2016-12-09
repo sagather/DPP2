@@ -57,7 +57,7 @@ public class SampleClient{
         System.out.println("6:  Book a seat by seat class and window/aisle preference");
         System.out.println("7:  Display Airport System details");
         System.out.println("8:  Write system details to file");
-        System.out.println("9:  Display Admin UI\n");
+        System.out.println("9:  Display Admin UI (None of admin UI is implemented)\n");
         System.out.println("---------------End UI, press 0 to quit--------");
 
         choice = kb.nextInt();
@@ -77,19 +77,18 @@ public class SampleClient{
         }
         switch(c){
             case 0:  System.exit(0);
-
                     break;
             case 1:  createFromFile();
                     break;
-            case 2: priceChange();
+            case 2: priceChange(); //Not fully implemented
                     break;
-            case 3: searchSeats();
+            case 3: searchSeats(); //Not fully implemented
                     break;
-            case 4: changeSeatClassPrice();
+            case 4: changeSeatClassPrice(); //Not fully implemented
                     break;
             case 5: bookSpecific();
                     break;
-            case 6: //BookPreference();
+            case 6: BookPreference(); //Created, but no time to test
                     break;
             case 7: System.out.println(travel.displaySystemDetails());
                     break;
@@ -105,7 +104,7 @@ public class SampleClient{
                     break;
             case 13:  //flightCrete();
                     break;
-            case 14:  //displayAirlineStat();
+            case 14:  System.out.println(travel.displaySystemDetails());
                     break;
             case 15:  //cruiseCreate();
                     break;
@@ -165,6 +164,7 @@ public class SampleClient{
                 travel.createTravelMethod(airlineName, departures[i], arrivals[i], Integer.parseInt(dates[i *5]),
                     Integer.parseInt(dates[(i*5)+1]), Integer.parseInt(dates[(i*5)+2]), Integer.parseInt(dates[(i*5)+3]),
                         Integer.parseInt(dates[(i*5)+4]), flights[i]);
+                //travel.createSection(airlineName,flights[i],);
 
             }
         }
@@ -232,8 +232,38 @@ public class SampleClient{
             System.out.println("Please enter desired seat row number: ");
             int row = kb.nextInt();
             System.out.println("Please enter desired letter: ");
-            char letter = kb.next().charAt(0);
+            char letter = kb.next().trim().charAt(0);
             travel.bookSpecific(iAirline, iFlight, classend, row, letter);
+        }
+        catch (IllegalArgumentException e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void BookPreference()
+    {
+        try {
+            Scanner kb = new Scanner(System.in);
+            System.out.println("Please enter desired Airline: ");
+            String iAirline = kb.nextLine();
+            System.out.println("Please enter desired Flight number: ");
+            String iFlight = kb.nextLine();
+            System.out.println("Please enter desired Seat Class: ");
+            String iClass = kb.nextLine();
+            SeatClass classend;
+            if (iClass.equalsIgnoreCase("first")) {
+                classend = SeatClass.FIRST;
+            } else if (iClass.equalsIgnoreCase("economy")) {
+                classend = SeatClass.ECONOMY;
+            } else if (iClass.equalsIgnoreCase("business")) {
+                classend = SeatClass.BUSINESS;
+            } else {
+                throw new IllegalArgumentException("Please only enter available class types!");
+            }
+            System.out.println("Please enter desired type (w = window, a = aisle): ");
+            char letter = kb.next().charAt(0);
+            travel.bookPreference(iAirline, iFlight, classend, letter);
         }
         catch (IllegalArgumentException e)
         {
