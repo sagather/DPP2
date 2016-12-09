@@ -81,7 +81,7 @@ public class FileParser {
 
         }
 
-        dates = dates.substring(2);
+        dates = dates.substring(1);
 
     }
 
