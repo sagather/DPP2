@@ -81,6 +81,8 @@ public class FileParser {
 
         }
 
+        dates = dates.substring(2);
+
     }
 
     public static String[] parseFlights(){
