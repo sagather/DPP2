@@ -1,4 +1,5 @@
 import java.io.*;
+import java.nio.Buffer;
 import java.util.*;
 
 /**
@@ -41,13 +42,23 @@ import java.util.*;
 
     public static void writeToFile(String output){
 
+        FileWriter fw;
+        BufferedWriter bw;
+
         try{
-            PrintWriter writer = new PrintWriter("output.txt");
-            writer.write(output);
+            fw = new FileWriter("output.txt");
+            bw = new BufferedWriter(fw);
+            bw.write(output);
+            bw.flush();
         }
         catch(FileNotFoundException e){
 
             System.out.println("For some reason the file was not found or created");
+        }
+        catch (IOException e){
+
+            System.out.println("Could not open output.txt");
+
         }
 
 
