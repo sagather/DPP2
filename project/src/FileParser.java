@@ -72,17 +72,44 @@ public class FileParser {
 
         }
 
+        inBetween = dates.split(", ");
+        dates = "";
+
+        for(String s :inBetween){
+
+            dates = dates + " " + s;
+
+        }
+
     }
 
-    public static String[] parseFlights(){   return flights.split(" ");     }
+    public static String[] parseFlights(){
 
-    public static String[] parseDates(){     return dates.split(", ");       }
+        parse();
+        return flights.split(" ");
+    }
 
-    public static String[] parseDepartures(){return dep.split(" ");         }
+    public static String[] parseDates(){
 
-    public static String[] parseArrivals(){  return arr.split(" ");         }
+        parse();
+        return dates.split(" ");
+    }
 
-    public static String[] parseSeats(){     return seats.split(",");       }
+    public static String[] parseDepartures(){
+
+        parse();
+        return dep.split(" ");
+    }
+
+    public static String[] parseArrivals(){
+
+        parse();
+        return arr.split(" ");         }
+
+    public static String[] parseSeats(){
+
+        parse();
+        return seats.split(",");       }
 
     public static void print(){
 
