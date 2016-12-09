@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class SampleClient{
 
     static TravelFactory travel;
+    private Scanner kb = new Scanner(System.in);
 
     public static void main(String[] args){
 
@@ -82,7 +83,7 @@ public class SampleClient{
                     break;
             case 1:  createFromFile();
                     break;
-            case 2:
+            case 2:  priceChange();
                     break;
             case 3:
                     break;
@@ -100,7 +101,7 @@ public class SampleClient{
                     break;
             case 10:  displayUI();
                     break;
-            case 11:
+            case 11:  airportCreate();
                     break;
             case 12:
                     break;
@@ -192,6 +193,22 @@ public class SampleClient{
             System.out.println(e.getMessage());
 
         }
+    }
+
+    public void airportCreate(){
+
+        System.out.println("Enter the three-letter airport code:");
+        travel.createTransport(kb.nextLine());
+
+    }
+
+    public void priceChange(){
+
+        System.out.println("Enter the flight section you would like to change the price of");
+        String fs = kb.nextLine();
+        System.out.println("Enter the price to change it to");
+        int price = kb.nextInt();
+
     }
 
 
