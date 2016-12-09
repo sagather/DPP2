@@ -56,4 +56,8 @@ public class SeaTravelFactory extends TravelFactory{
         return null;
     }
 
+    public String displaySystemDetails(){
+
+    }
+
 }

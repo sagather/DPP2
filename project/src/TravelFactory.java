@@ -22,5 +22,7 @@ public abstract class TravelFactory {
 
     public abstract String getAirlineName(int index);
 
+    public abstract String displaySystemDetails();
+
 }
 

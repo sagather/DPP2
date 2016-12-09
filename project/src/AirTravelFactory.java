@@ -331,20 +331,24 @@ public class AirTravelFactory extends TravelFactory{
         }
     }
 
-    public void displaySystemDetails(){
-        System.out.println("\nAirports:\n");
+    public String displaySystemDetails(){
+
+        String s = "";
+        s += "\nAirports:\n";
 
         for(Airport port : airports){
-            System.out.println(port.toString());
+            s+= port.toString();
         }
-        System.out.println("\nAirlines:\n");
+        s += "\nAirlines:\n";
         for(Airline line : airlines){
             System.out.println(line.toString());
         }
-        System.out.println("\nFlights:\n");
+        s += "\nFlights:\n";
         for(Flight fly : flights){
-            System.out.println(fly.toString());
+            s += fly.toString();
         }
+
+        return s;
     }
 
 }

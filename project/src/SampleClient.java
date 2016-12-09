@@ -205,7 +205,7 @@ public class SampleClient{
 
     public static void writeOutput(){
 
-        FileReader.writeToFile(travel.toString());
+        FileReader.writeToFile(travel.displaySystemDetails());
 
     }
 
