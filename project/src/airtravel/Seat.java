@@ -10,6 +10,7 @@ public class Seat {
     private char type;//w = window a = aisle n=nothing
     private String assignment;
     private boolean assigned = false;
+    private int price;
 
     public Seat(int iRow, char iSeat, char type){
 
@@ -21,6 +22,18 @@ public class Seat {
     public String toString(){
         this.assignment = "Seat: " + row + seat;
         return this.assignment;
+
+    }
+
+    public void setPrice(int iPrice){
+
+        this.price = iPrice;
+
+    }
+
+    public int getPrice(){
+
+        return this.price;
 
     }
 
