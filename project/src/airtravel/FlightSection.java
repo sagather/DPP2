@@ -222,7 +222,7 @@ public class FlightSection {
     }
 
     public String toString(){
-        return " For section " + sClass + " there is " + seats.toString();
+        return "" + this.sectType+ ":"+this.price + "S:" + this.rows;
 
     }
 

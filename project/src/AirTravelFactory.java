@@ -333,17 +333,13 @@ public class AirTravelFactory extends TravelFactory{
 
     public String displaySystemDetails(){
 
-        String s = "";
-        s += "\nAirports:\n";
+        String s = "[";
 
         for(Airport port : airports){
-            s = s+ port.toString() + "\n";
+            s = s+ port.toString() + ", ";
         }
-        s += "\nAirlines:\n";
-        for(Airline line : airlines){
-            s += line.toString() + "\n";
-        }
-        s += "\nFlights:\n";
+        s += "]{";
+
         for(Flight fly : flights){
             s += fly.toString();
         }

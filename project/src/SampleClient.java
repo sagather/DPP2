@@ -99,7 +99,7 @@ public class SampleClient{
                     break;
             case 10:  displayUI();
                     break;
-            case 11:  //airportCreate();
+            case 11:  airportCreate();
                     break;
             case 12:  //airlineCreate();
                     break;
@@ -244,6 +244,12 @@ public class SampleClient{
     public static void writeOutput(){
 
         FileReader.writeToFile(travel.displaySystemDetails());
+
+    }
+
+    public static void airportCreate(){
+
+        //travel.createTransport();
 
     }
 

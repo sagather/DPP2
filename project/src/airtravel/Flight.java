@@ -32,12 +32,13 @@ public class Flight {
 
     public String toString()
     {
-        String flight = "Airline " + this.airlineName + ", departing from " + this.departureCity + ", on " + this.month + ", " + this.day + " " + this.year +
-              " at "+ this.hour +":"+ this.minute +  " arriving at " + this.arrivalCity + ", flight number " + this.ID + ".\n";
+        String flight = this.ID + "|" + this.year + ", " + this.month + ", " + this.day + ", " + this.hour + "," + this.minute + "|";
+
+        flight += this.departureCity + "|" + this.arrivalCity + "[";
 
         for(FlightSection sect : section){
 
-            flight += sect.toString();
+            flight += sect.toString() + "], ";
 
         }
 
