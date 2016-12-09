@@ -165,8 +165,8 @@ public class SampleClient{
             for(int i = 0; i < flights.length; i++){
 
                 travel.createTravelMethod(travel.getAirlineName(i), departures[i], arrivals[i], Integer.parseInt(dates[i]),
-                    Integer.parseInt(dates[i+1]), Integer.parseInt(dates[i+2]), Integer.parseInt(dates[i+3]),
-                        Integer.parseInt(dates[i+4]), flights[i]);
+                    Integer.parseInt(dates[(i*5)+1]), Integer.parseInt(dates[(i*5)+2]), Integer.parseInt(dates[(i*5)+3]),
+                        Integer.parseInt(dates[(i*5)+4]), flights[i]);
 
             }
 
