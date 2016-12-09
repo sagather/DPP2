@@ -1,7 +1,7 @@
 /**
  * Created by bcxtr on 12/7/2016.
  */
-
+//Megan Ostby & Sam Agather
 import airtravel.FlightSection;
 import airtravel.SeatClass;
 import seatravel.*;
@@ -31,7 +31,7 @@ public class SeaTravelFactory extends TravelFactory{
     }
 
     @Override
-    public void createSection(String iAirline, String iFlightNumber, int iRow, char iCols, SeatClass iClass) {
+    public void createSection(String iAirline, String iFlightNumber, int iRow, char iCols, SeatClass iClass, int price) {
 
     }
 

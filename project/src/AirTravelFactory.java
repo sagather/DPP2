@@ -1,7 +1,7 @@
 /**
  * Created by bcxtr on 12/7/2016.
  */
-
+//Megan Ostby & Sam Agather
 import airtravel.*;
 
 import java.util.ArrayList;
@@ -160,7 +160,7 @@ public class AirTravelFactory extends TravelFactory{
         }
     }
 
-    public void createSection(String iAirline, String iFlightNumber, int iRow, char iCols, SeatClass iClass)
+    public void createSection(String iAirline, String iFlightNumber, int iRow, char iCols, SeatClass iClass, int price)
     {
         Boolean airlineGood = false;
         Boolean classGood = false;

@@ -1,6 +1,7 @@
 /**
  * Created by Megan Ostby on 12/6/2016.
  */
+//Megan Ostby & Sam Agather
 public class BookingFactory
 {
     public void bookTravel(String type)

@@ -1,5 +1,5 @@
 package seatravel;
-
+//Megan Ostby & Sam Agather
 /**
  * Created by Megan Ostby on 12/8/2016.
  */

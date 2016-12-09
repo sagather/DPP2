@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+//Megan Ostby & Sam Agather
 public class SampleClient{
 
     static TravelFactory travel;
@@ -54,7 +54,7 @@ public class SampleClient{
         System.out.println("3:  Search for seats (Not Fully Implemented)");
         System.out.println("4:  Change seat class pricing for flight destination [ ] and arrival [ ](Not Fully Implemented) ");
         System.out.println("5:  Book a seat on a flight");
-        System.out.println("6:  Book a seat by seat class and window/aisle preference");
+        System.out.println("6:  Book a seat by seat class and window/aisle preference");//Started, not completed
         System.out.println("7:  Display Airport System details");
         System.out.println("8:  Write system details to file");
         System.out.println("9:  Display Admin UI (None of admin UI is implemented)\n");

@@ -1,5 +1,5 @@
 package seatravel;
-
+//Megan Ostby & Sam Agather
 import java.util.ArrayList;
 
 /**

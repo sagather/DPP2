@@ -1,5 +1,5 @@
 package seatravel;
-
+//Megan Ostby & Sam Agather
 import java.util.ArrayList;
 
 /**
@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 public class CabinSection
 {
+    //Megan Ostby & Sam Agather
     private ArrayList<Cabin> cabins = new ArrayList<Cabin>();
     private CabinClass sClass;
     private int floor;
