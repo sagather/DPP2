@@ -83,7 +83,7 @@ public class SampleClient{
                     break;
             case 2:
                     break;
-            case 3:
+            case 3:  searchSeats();
                     break;
             case 4:
                     break;
@@ -93,19 +93,19 @@ public class SampleClient{
                     break;
             case 7:
                     break;
-            case 8:
+            case 8:  writeOutput();
                     break;
             case 9:  displayAdminUI();
                     break;
             case 10:  displayUI();
                     break;
-            case 11:
+            case 11:  //airportCreate();
                     break;
-            case 12:
+            case 12:  //airlineCreate();
                     break;
-            case 13:
+            case 13:  //flightCrete();
                     break;
-            case 14:
+            case 14:  //
                     break;
             case 15:
                     break;
@@ -195,7 +195,7 @@ public class SampleClient{
         }
     }
 
-    public void searchSeats()
+    public static void searchSeats()
     {
         Scanner kb = new Scanner(System.in);
         System.out.println("Please enter desired seat class: ");
@@ -211,6 +211,12 @@ public class SampleClient{
         System.out.println("Please enter desired departure year: ");
         int year = kb.nextInt();
 
+
+    }
+
+    public static void writeOutput(){
+
+        FileReader.writeToFile(travel.toString());
 
     }
 

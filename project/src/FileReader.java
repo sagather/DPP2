@@ -39,7 +39,7 @@ import java.util.*;
 
     }
 
-    public void writeToFile(String output){
+    public static void writeToFile(String output){
 
         try{
             PrintWriter writer = new PrintWriter("output.txt");
