@@ -134,7 +134,7 @@ public class SampleClient{
 
         try{
 
-            File file = FileReader.openFile("C:/Users/bcxtr/IdeaProjects/DPP2/project/src/input.txt");
+            File file = FileReader.openFile("C:/Users/Megan Ostby/IdeaProjects/DPP2/project/src/input.txt");
             ArrayList<String> construction = FileReader.readFile(file);
             String []  airports = FileParser.parseAirports(construction);
 

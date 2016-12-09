@@ -1,168 +1,71 @@
 package seatravel;
 
+import java.util.ArrayList;
+
 /**
  * Created by bcxtr on 12/7/2016.
  */
 public class CabinSection
 {
-    /*
-    //private ArrayList<Seat> seats = new ArrayList<Seat>();
-    //private SeatClass sClass;
-    private int rows;
-    private int cols;
-    private String airline;
-    private String flightNumber;
+    private ArrayList<Cabin> cabins = new ArrayList<Cabin>();
+    private CabinClass sClass;
+    private int floor;
+    private int rmNum;// total number of rooms in the section (must be an even number
+    private String cruise;
+    private String shipName;
     private char sectType;
 
     //cruiseCompanyName, cruise, atartDate, endDate, String[] ports, ship, cabins, cabinsections
-    public CabinSection(String iCruiseLine, String iFlightNumber, int seatRows, char cols, CabinSection isClass){
-
+    public CabinSection(String iCruiseLine, String iShipName, int floor, int rmNum, CabinClass isClass){
         try{
-            if(seatRows > 100 ||  seatRows < 1){
-                throw new IllegalArgumentException();
+            if(rmNum % 2 != 0){
+                throw new IllegalArgumentException("Number of rooms in the section must be even!");
+            }
+            else if(floor < 0){
+                throw new IllegalArgumentException("Number of floors in the section must be greater than 0!");
             }
 
-            int seatCols = sectType(cols);
-            for(int i = 1; i <= seatRows; i++){
-                char z = 'a';
-                for(int j = 0; j < seatCols; j++){
-                    char type = winOrAisle(z);
-                    //seats.add(new Seat(i, z, type));
+            //int seatCols = sectType(cols);
+            for(int i = 1; i <= floor; i++){
+                int z = 1;
+                int typeCount = 1;
+                for(int j = 0; j < rmNum; j++){
+                    char type = balcOrInner(typeCount);
+                    cabins.add(new Cabin(i, z, type));
                     z++;
+                    typeCount++;
+                    if(typeCount > 4) {
+                        typeCount = 1;
+                    }
                 }
             }
 
-            //this.airline = iAirline;
-            this.flightNumber = iFlightNumber;
-            //this.sClass = isClass;
-            this.rows = seatRows;
-            this.cols = seatCols;
+            this.cruise = iCruiseLine;
+            this.shipName = iShipName;
+            this.sClass = isClass;
+            this.floor = floor;
+            this.rmNum = rmNum;
         }
         catch(IllegalArgumentException e){
-            System.out.println("Invalid number of rows and cols to create a flight");
+            System.out.println("Cabin section not created. " + e.getMessage());
         }
     }
 
-    public char winOrAisle(char c)
+    public char balcOrInner(int i)
     {
-        try {
-            if (sectType == 'S') //3 columns (a-c)
-            {
-                if(c == 'a')
-                {
-                    return 'w';
-                }
-                else if(c == 'b')
-                {
-                    return 'a';
-                }
-                else if(c == 'c')
-                {
-                    return 'w';
-                }
-            }
-            else if (sectType == 'M') //4 columns (a-d)
-            {
-                if(c == 'a')
-                {
-                    return 'w';
-                }
-                else if(c == 'b')
-                {
-                    return 'a';
-                }
-                else if(c == 'c')
-                {
-                    return 'a';
-                }
-                else if(c == 'd')
-                {
-                    return 'w';
-                }
-            }
-            else if (sectType == 'W') //10 columns (a -j)
-            {
-                if(c == 'a')// 1 window
-                {
-                    return 'w';
-                }
-                else if(c == 'b')// 2
-                {
-                    return 'n';
-                }
-                else if(c == 'c')// 3 aisle
-                {
-                    return 'a';
-                }
-                else if(c == 'd')// 4 aisle
-                {
-                    return 'a';
-                }
-                else if(c == 'e')// 5
-                {
-                    return 'n';
-                }
-                else if(c == 'f')// 6
-                {
-                    return 'n';
-                }
-                else if(c == 'g')// 7 aisle
-                {
-                    return 'a';
-                }
-                else if(c == 'h')// 8 aisle
-                {
-                    return 'a';
-                }
-                else if(c == 'i')// 9
-                {
-                    return 'n';
-                }
-                else if(c == 'j')// 10 window
-                {
-                    return 'w';
-                }
-            }
-            else
-            {
-                throw new IllegalArgumentException("That seat format given does not exist.");
-            }
-        }
-        catch (IllegalArgumentException e)
+        if (i == 1 || i == 4) //Always 4 rows
         {
-            System.out.println("Flight section was not created" + e.getMessage());
+            return 'b';
         }
-        return 'n';
+        else
+        {
+            return 'a';
+        }
     }
 
-    public int sectType(char col)
-    {
-        try {
-            if (col == 's' || col == 'S') {
-                this.sectType = 'S';
-                return 3;
-            } else if (col == 'm' || col == 'M') {
-                this.sectType = 'M';
-                return 4;
-            } else if (col == 'w' || col == 'W') {
-                this.sectType = 'W';
-                return 10;
-            }
-            else
-            {
-                throw new IllegalArgumentException("The seat format given does not exist.");
-            }
-        }
-        catch (IllegalArgumentException e)
-        {
-            System.out.println("Flight section was not created" + e.getMessage());
-        }
-        return 0;
-    }
-
-    public boolean hasAvailableSeats(){
+    public boolean hasAvailableCabins(){
         int i = 0;
-        for(Seat s : seats){
+        for(Cabin s : cabins){
             if(!s.isAssigned()){
                 i++;
             }
@@ -170,11 +73,11 @@ public class CabinSection
         return i>0;
     }
 
-    public Seat hasAvailableType(char c)
+    public Cabin hasAvailableType(char c)
     {
         try {
             int i = 0;
-            for (Seat s : seats) {
+            for (Cabin s : cabins) {
                 if (!s.isAssigned() && s.getType() == c) {
                     return s;
                 }
@@ -187,39 +90,39 @@ public class CabinSection
         return null;
     }
 
-    public void bookSeat(int iRow, char iCol, SeatClass iClass){
+    public void bookCabin(int floor, int rmNum, CabinClass iClass){
         try {
             int i = 0;
-            for (Seat s : seats) {
-                if (s.getRow() == iRow) {
-                    if (s.getCol() == Character.toLowerCase(iCol)  && !s.isAssigned()){
+            for (Cabin s : cabins) {
+                if (s.getFloor() == floor) {
+                    if (s.getRmNum() == rmNum  && !s.isAssigned())
+                    {
                         s.setAssigned();
-                        System.out.println("You successfully booked " + this.sClass + ", seat " + iRow + iCol);
+                        System.out.println("You successfully booked " + this.sClass + ", Cabin. Floor: " + floor + " Room #: "+ rmNum);
                         i++;
                     }
                 }
             }
             if (i == 0) {
-                throw new IllegalArgumentException(iRow + "" + iCol+ " was not available. ");
+                throw new IllegalArgumentException("Floor: "+ floor + " Room: " + rmNum+ " was not available. ");
             }
         }
         catch (IllegalArgumentException e)
         {
-            System.out.println("Seat was not booked. " + e.getMessage());
+            System.out.println("Cabin was not booked. " + e.getMessage());
         }
     }
 
     public String toString(){
-        return " For section " + sClass + " there is " + seats.toString();
+        return " For section " + sClass + " there is " + cabins.toString();
 
     }
 
-    public boolean classCompare(SeatClass iClass){
+    public boolean classCompare(CabinClass iClass){
         if(iClass == sClass){
             return true;
         }
         return false;
     }
 }
-*/
-}
+
