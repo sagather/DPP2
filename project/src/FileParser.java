@@ -9,6 +9,7 @@ public class FileParser {
     private static String[] airports;
     private static String[] airlines;
     private static String[] flights;
+    private static String interim;
 
     public static String[] parseAirports(ArrayList<String> input){
 
@@ -22,7 +23,7 @@ public class FileParser {
 
     public static String[] parseAirlines(ArrayList<String> input){
 
-        String interim = input.get(0);
+        interim = input.get(0);
         interim = interim.substring(0, interim.length() - 1);
         String[] inBetween = interim.split("\\], ");
 
@@ -53,7 +54,7 @@ public class FileParser {
 
     }
 
-    public static void parseFlight(String[] f){
+    public static void parseFlight(){
 
 
 
@@ -63,9 +64,7 @@ public class FileParser {
 
     public static void print(){
 
-        for(String s: flights){
-            System.out.println(s);
-        }
+        System.out.println(interim);
 
     }
 

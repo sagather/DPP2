@@ -33,6 +33,8 @@ import java.util.*;
 
         }
 
+        fileScanner.close();
+
         return constructions;
 
     }
@@ -47,6 +49,7 @@ import java.util.*;
 
             System.out.println("For some reason the file was not found or created");
         }
+
 
 
 
