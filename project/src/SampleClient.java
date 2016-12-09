@@ -61,8 +61,6 @@ public class SampleClient{
         choice = kb.nextInt();
 
         processChoice(choice);
-
-
     }
 
     public static void processChoice(int c){
@@ -137,8 +135,10 @@ public class SampleClient{
         }
 
         try{
-
-            File file = FileReader.openFile("C:/Users/Megan Ostby/IdeaProjects/DPP2/project/src/input.txt");
+            Scanner kb = new Scanner(System.in);
+            System.out.println("Please enter full input file path and name: ");
+            String fileName = kb.nextLine();
+            File file = FileReader.openFile(fileName);//C:/Users/Megan Ostby/IdeaProjects/DPP2/project/src/input.txt
             ArrayList<String> construction = FileReader.readFile(file);
             String[]  airports = FileParser.parseAirports(construction);
 
@@ -189,10 +189,28 @@ public class SampleClient{
         }
         catch (FileNotFoundException e){
 
-            System.out.println(e.getMessage());
+            System.out.println("File was not found" + e.getMessage());
 
         }
     }
 
+    public void searchSeats()
+    {
+        Scanner kb = new Scanner(System.in);
+        System.out.println("Please enter desired seat class: ");
+        String seatClass = kb.nextLine();
+        System.out.println("Please enter desired departure airport: ");
+        String departAir = kb.nextLine();
+        System.out.println("Please enter desired arrival airport: ");
+        String arriveAir = kb.nextLine();
+        System.out.println("Please enter desired departure month: ");
+        int month = kb.nextInt();
+        System.out.println("Please enter desired departure day: ");
+        int day = kb.nextInt();
+        System.out.println("Please enter desired departure year: ");
+        int year = kb.nextInt();
+
+
+    }
 
 }
