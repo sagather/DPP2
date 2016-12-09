@@ -13,6 +13,7 @@ public class FlightSection {
     private String airline;
     private String flightNumber;
     private char sectType;
+    private int price;
 
     public FlightSection(String iAirline, String iFlightNumber, int seatRows, char cols, SeatClass isClass){
 
@@ -132,6 +133,18 @@ public class FlightSection {
             System.out.println("Flight section was not created" + e.getMessage());
         }
         return 'n';
+    }
+
+    public void setPrice(int iPrice){
+
+        this.price = iPrice;
+
+    }
+
+    public int getPrice(){
+
+        return this.price;
+
     }
 
     public int sectType(char col)
