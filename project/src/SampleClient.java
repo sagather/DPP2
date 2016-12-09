@@ -81,17 +81,17 @@ public class SampleClient{
                     break;
             case 1:  createFromFile();
                     break;
-            case 2:
+            case 2:  //priceChange();
                     break;
             case 3:  searchSeats();
                     break;
-            case 4:
+            case 4:  //priceChangeDestinationArrival();
                     break;
-            case 5:
+            case 5:  //bookSeatbyPref();
                     break;
-            case 6:
+            case 6:  //bookSeatbyClass();
                     break;
-            case 7:
+            case 7:  //displayAirlineStat();
                     break;
             case 8:  writeOutput();
                     break;
@@ -105,17 +105,17 @@ public class SampleClient{
                     break;
             case 13:  //flightCrete();
                     break;
-            case 14:  //
+            case 14:  //displayAirlineStat();
                     break;
-            case 15:
+            case 15:  //cruiseCreate();
                     break;
-            case 16:
+            case 16:  //portCreate();
                     break;
-            case 17:
+            case 17:  //tripCreate();
                     break;
-            case 18:
+            case 18:  //shipCreate();
                     break;
-            case 19:
+            case 19:  //displayCruiseLineStat();
                     break;
 
             default:
