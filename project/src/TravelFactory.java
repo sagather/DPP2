@@ -3,6 +3,9 @@ import airtravel.SeatClass;
 /**
  * Created by bcxtr on 12/7/2016.
  */
+
+import airtravel.*;
+
 public abstract class TravelFactory {
 
     public abstract void createTransport(String s);
@@ -18,5 +21,6 @@ public abstract class TravelFactory {
     public abstract void bookPreference(String iAirline, String iFlight, SeatClass iClass, char iSeat);
 
     public abstract String getAirlineName(int index);
+
 }
 

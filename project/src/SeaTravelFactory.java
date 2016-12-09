@@ -5,6 +5,7 @@
 import airtravel.FlightSection;
 import airtravel.SeatClass;
 import seatravel.*;
+import airtravel.SeatClass;
 
 import java.util.ArrayList;
 
@@ -18,6 +19,7 @@ public class SeaTravelFactory extends TravelFactory{
     {
 
     }
+
     public void createCompany(String cruise){
 
     }
