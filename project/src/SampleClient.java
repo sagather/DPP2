@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class SampleClient{
 
     static TravelFactory travel;
-    private Scanner kb = new Scanner(System.in);
 
     public static void main(String[] args){
 
@@ -62,8 +61,6 @@ public class SampleClient{
         choice = kb.nextInt();
 
         processChoice(choice);
-
-
     }
 
     public static void processChoice(int c){
@@ -83,7 +80,7 @@ public class SampleClient{
                     break;
             case 1:  createFromFile();
                     break;
-            case 2:  priceChange();
+            case 2:
                     break;
             case 3:
                     break;
@@ -101,7 +98,7 @@ public class SampleClient{
                     break;
             case 10:  displayUI();
                     break;
-            case 11:  airportCreate();
+            case 11:
                     break;
             case 12:
                     break;
@@ -138,8 +135,10 @@ public class SampleClient{
         }
 
         try{
-
-            File file = FileReader.openFile("C:/Users/Megan Ostby/IdeaProjects/DPP2/project/src/input.txt");
+            Scanner kb = new Scanner(System.in);
+            System.out.println("Please enter full input file path and name: ");
+            String fileName = kb.nextLine();
+            File file = FileReader.openFile(fileName);//C:/Users/Megan Ostby/IdeaProjects/DPP2/project/src/input.txt
             ArrayList<String> construction = FileReader.readFile(file);
             String[]  airports = FileParser.parseAirports(construction);
 
@@ -190,26 +189,28 @@ public class SampleClient{
         }
         catch (FileNotFoundException e){
 
-            System.out.println(e.getMessage());
+            System.out.println("File was not found" + e.getMessage());
 
         }
     }
 
-    public void airportCreate(){
+    public void searchSeats()
+    {
+        Scanner kb = new Scanner(System.in);
+        System.out.println("Please enter desired seat class: ");
+        String seatClass = kb.nextLine();
+        System.out.println("Please enter desired departure airport: ");
+        String departAir = kb.nextLine();
+        System.out.println("Please enter desired arrival airport: ");
+        String arriveAir = kb.nextLine();
+        System.out.println("Please enter desired departure month: ");
+        int month = kb.nextInt();
+        System.out.println("Please enter desired departure day: ");
+        int day = kb.nextInt();
+        System.out.println("Please enter desired departure year: ");
+        int year = kb.nextInt();
 
-        System.out.println("Enter the three-letter airport code:");
-        travel.createTransport(kb.nextLine());
 
     }
-
-    public void priceChange(){
-
-        System.out.println("Enter the flight section you would like to change the price of");
-        String fs = kb.nextLine();
-        System.out.println("Enter the price to change it to");
-        int price = kb.nextInt();
-
-    }
-
 
 }
