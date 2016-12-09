@@ -7,7 +7,7 @@ public abstract class TravelFactory {
 
     public abstract void  createCompany(String s);
 
-    //public abstract void create
+    public abstract void createTravelMethod(String transport, String departure, String arrival, int year, int month, int day, int hour, int minute, String lineNumber);
 
 }
 

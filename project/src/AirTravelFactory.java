@@ -62,7 +62,7 @@ public class AirTravelFactory extends TravelFactory{
         }
     }
 
-    public void createFlight(String iLine, String iDeparture, String iArrival, int year, int month, int day, int hour, int minute, String iFlightNumber)
+    public void createTravelMethod(String iLine, String iDeparture, String iArrival, int year, int month, int day, int hour, int minute, String iFlightNumber)
     {
         Boolean airlineGood = false;
         Boolean departureGood = false;

@@ -140,7 +140,7 @@ public class SampleClient{
 
             File file = FileReader.openFile("C:/Users/bcxtr/IdeaProjects/DPP2/project/src/input.txt");
             ArrayList<String> construction = FileReader.readFile(file);
-            String []  airports = FileParser.parseAirports(construction);
+            String[]  airports = FileParser.parseAirports(construction);
 
             for(String s: airports){
 
@@ -153,6 +153,19 @@ public class SampleClient{
             for(String s : airlines){
 
                 travel.createCompany(s);
+
+            }
+            String[] flights = FileParser.parseFlights();
+            String[] dates = FileParser.parseDates();
+            String[] departures = FileParser.parseDepartures();
+            String[] arrivals = FileParser.parseArrivals();
+            String[] seats = FileParser.parseSeats();
+
+            for(int i = 0; i < flights.length; i++){
+
+                travel.createTravelMethod("transport", departures[i], arrivals[i], Integer.parseInt(dates[i]),
+                    Integer.parseInt(dates[i+1]), Integer.parseInt(dates[i+2]), Integer.parseInt(dates[i+3]),
+                        Integer.parseInt(dates[i+4]), flights[i]);
 
             }
 

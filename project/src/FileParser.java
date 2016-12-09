@@ -8,7 +8,11 @@ public class FileParser {
 
     private static String[] airports;
     private static String[] airlines;
-    private static String[] flights;
+    private static String flights = "";
+    private static String dates = "";
+    private static String dep = "";
+    private static String arr = "";
+    private static String seats = "";
     private static String interim;
 
     public static String[] parseAirports(ArrayList<String> input){
@@ -40,13 +44,13 @@ public class FileParser {
         airlines = interim.split(" ");
         interim = "";
 
-        for(int i = 1; i < inBetween.length - 1; i++){
+        for(int i = 1; i < inBetween.length; i++){
 
             if(i == 5){
                 i++;
             }
 
-            interim = interim + " " + inBetween[i];
+            interim = interim + inBetween[i] + "|";
 
         }
 
@@ -54,17 +58,39 @@ public class FileParser {
 
     }
 
-    public static void parseFlight(){
+    public static void parse(){
 
+        String[] inBetween = interim.split("\\|");
 
+        for(int i = 0; i < inBetween.length; i= i + 5){
 
-        print();
+            flights += inBetween[i] + " ";
+            dates += inBetween[i+1] + " ";
+            dep += inBetween[i + 2] + " ";
+            arr += inBetween[i +3] + " ";
+            seats += inBetween[i+4] + " ";
+
+        }
 
     }
 
+    public static String[] parseFlights(){   return flights.split(" ");     }
+
+    public static String[] parseDates(){     return dates.split(", ");       }
+
+    public static String[] parseDepartures(){return dep.split(" ");         }
+
+    public static String[] parseArrivals(){  return arr.split(" ");         }
+
+    public static String[] parseSeats(){     return seats.split(",");       }
+
     public static void print(){
 
-        System.out.println(interim);
+        System.out.println(flights);
+        System.out.println(dates);
+        System.out.println(dep);
+        System.out.println(arr);
+        System.out.println(seats);
 
     }
 

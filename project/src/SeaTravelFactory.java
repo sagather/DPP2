@@ -15,4 +15,8 @@ public class SeaTravelFactory extends TravelFactory{
 
     }
 
+    public void createTravelMethod(String transport, String depart, String arrive, int iYear, int month, int day, int hour, int minute, String line){
+
+    }
+
 }
