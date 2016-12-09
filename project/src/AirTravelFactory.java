@@ -40,7 +40,7 @@ public class AirTravelFactory extends TravelFactory{
         }
     }
 
-    public void createAirline(String iAirline){
+    public void createCompany(String iAirline){
         try
         {
             if (iAirline.length() > 6) {

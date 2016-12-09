@@ -11,5 +11,8 @@ public class SeaTravelFactory extends TravelFactory{
 
 
     }
+    public void createCompany(String cruise){
+
+    }
 
 }

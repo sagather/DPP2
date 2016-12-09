@@ -11,5 +11,8 @@ public class LandTravelFactory extends TravelFactory{
 
 
     }
+    public void createCompany(String company){
+
+    }
 
 }

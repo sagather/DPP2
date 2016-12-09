@@ -5,5 +5,9 @@ public abstract class TravelFactory {
 
     public abstract void createTransport(String s);
 
+    public abstract void  createCompany(String s);
+
+
+
 }
 
