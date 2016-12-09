@@ -37,5 +37,20 @@ import java.util.*;
 
     }
 
+    public void writeToFile(String output){
+
+        try{
+            PrintWriter writer = new PrintWriter("output.txt");
+            writer.write(output);
+        }
+        catch(FileNotFoundException e){
+
+            System.out.println("For some reason the file was not found or created");
+        }
+
+
+
+    }
+
 
 }
