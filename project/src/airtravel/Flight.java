@@ -18,7 +18,7 @@ public class Flight {
     private int hour;
     private int minute;
 
-    public Flight(String airlineName, String departCity, String arriveCity, int year, int month, int day, int minute, int hour, String flightNumber) {
+    public Flight(String airlineName, String departCity, String arriveCity, int year, int month, int day, int hour, int minute, String flightNumber) {
         this.ID = flightNumber;
         this.airlineName = airlineName;
         this.departureCity = departCity;
@@ -33,7 +33,7 @@ public class Flight {
     public String toString()
     {
         String flight = "Airline " + this.airlineName + ", departing from " + this.departureCity + ", on " + this.month + ", " + this.day + " " + this.year +
-              "at "+ this.hour +":"+ this.minute +  " arriving at " + this.arrivalCity + ", flight number " + this.ID + ".\n";
+              " at "+ this.hour +":"+ this.minute +  " arriving at " + this.arrivalCity + ", flight number " + this.ID + ".\n";
 
         for(FlightSection sect : section){
 

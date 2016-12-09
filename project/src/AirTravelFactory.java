@@ -62,6 +62,11 @@ public class AirTravelFactory extends TravelFactory{
         }
     }
 
+    @Override
+    public String getAirlineName(int index) {
+        return airlines.get(index).getName();
+    }
+
     public void createTravelMethod(String iLine, String iDeparture, String iArrival, int year, int month, int day, int hour, int minute, String iFlightNumber)
     {
         Boolean airlineGood = false;
