@@ -7,70 +7,68 @@ import java.util.ArrayList;
  */
 public class Trip
 {
-    /*
-    private ArrayList<FlightSection> section = new ArrayList<FlightSection>();
-    private String ID;
-    private String airlineName;
-    private String departureCity;
-    private String arrivalCity;
-    private int year;
-    private int month;
-    private int day;
-    private int hour;
-    private int minute;
+    private ArrayList<CabinSection> section = new ArrayList<CabinSection>();
+    private String shipName;
+    private String cruiseName;
+    private String departurePort;
+    private String arrivalPort;
+    private int dYear;
+    private int dMonth;
+    private int dDay;
+    private int aYear;
+    private int aMonth;
+    private int aDay;
 
-    public Flight(String airlineName, String departCity, String arriveCity, int year, int month, int day, int minute, int hour, String flightNumber) {
-        this.ID = flightNumber;
-        this.airlineName = airlineName;
-        this.departureCity = departCity;
-        this.arrivalCity = arriveCity;
-        this.year = year;
-        this.month = month;
-        this.day = day;
-        this.minute = minute;
-        this.hour = hour;
+    public Trip(String shipName, String cruiseName, String departurePort, String arrivalPort,int dYear,int dMonth, int dDay,int aYear, int aMonth, int aDay) {
+        this.shipName = shipName;
+        this.cruiseName = cruiseName;
+        this.departurePort = departurePort;
+        this.arrivalPort = arrivalPort;
+        this.dYear = dYear;
+        this.dMonth = dMonth;
+        this.dDay = dDay;
+        this.aYear = aYear;
+        this.aMonth = aMonth;
+        this.dDay = aDay;
     }
 
     public String toString()
     {
-        String flight = "Airline " + this.airlineName + ", departing from " + this.departureCity + ", on " + this.month + ", " + this.day + " " + this.year +
-                "at "+ this.hour +":"+ this.minute +  " arriving at " + this.arrivalCity + ", flight number " + this.ID + ".\n";
+        String trip = "Trip on " + this.cruiseName + " on " + shipName+ ", departing from " + this.departurePort + ", on " + this.dMonth + ", " + this.dDay + " " + this.dYear +
+                "returning on "+ this.aMonth +", "+ this.aDay +  " arriving at " + this.arrivalPort + ".\n";
 
-        for(FlightSection sect : section){
-
-            flight += sect.toString();
-
+        for(CabinSection sect : section){
+            trip += sect.toString();
         }
 
-        return flight;
+        return trip;
     }
 
     public String getDepartureCity()
     {
-        return this.departureCity;
+        return this.departurePort;
     }
 
     public String getArrivalCity()
     {
-        return this.arrivalCity;
+        return this.arrivalPort;
     }
 
-    public String getID()
+    public String getCruiseName()
     {
-        return this.ID;
+        return this.cruiseName;
     }
 
-    public void addFlightSection(FlightSection fs)
+    public void addCabinSection(CabinSection cs)
     {
-        section.add(fs);
+        section.add(cs);
     }
 
-    public FlightSection getFlightSection(SeatClass iClass)
+    public CabinSection getFlightSection(CabinClass iClass)
     {
-        for(FlightSection sect : section){
+        for(CabinSection sect : section){
 
             if(sect.classCompare(iClass)){
-
                 return sect;
             }
         }
@@ -80,5 +78,4 @@ public class Trip
     public int sectionSize(){
         return section.size();
     }
-*/
 }

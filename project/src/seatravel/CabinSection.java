@@ -15,7 +15,6 @@ public class CabinSection
     private String shipName;
     private char sectType;
 
-    //cruiseCompanyName, cruise, atartDate, endDate, String[] ports, ship, cabins, cabinsections
     public CabinSection(String iCruiseLine, String iShipName, int floor, int rmNum, CabinClass isClass){
         try{
             if(rmNum % 2 != 0){
