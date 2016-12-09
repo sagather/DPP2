@@ -337,11 +337,11 @@ public class AirTravelFactory extends TravelFactory{
         s += "\nAirports:\n";
 
         for(Airport port : airports){
-            s+= port.toString();
+            s = s+ port.toString() + "\n";
         }
         s += "\nAirlines:\n";
         for(Airline line : airlines){
-            System.out.println(line.toString());
+            s = line.toString() + "\n";
         }
         s += "\nFlights:\n";
         for(Flight fly : flights){

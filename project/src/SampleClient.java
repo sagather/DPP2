@@ -91,7 +91,7 @@ public class SampleClient{
                     break;
             case 6: //BookPreference();
                     break;
-            case 7: //DisplayDetails();
+            case 7: System.out.println(travel.displaySystemDetails());
                     break;
             case 8:  writeOutput();
                     break;
@@ -162,7 +162,7 @@ public class SampleClient{
 
                     airlineName = airlines[1];
                 }
-                travel.createTravelMethod(airlineName, departures[i], arrivals[i], Integer.parseInt(dates[i]),
+                travel.createTravelMethod(airlineName, departures[i], arrivals[i], Integer.parseInt(dates[i *5]),
                     Integer.parseInt(dates[(i*5)+1]), Integer.parseInt(dates[(i*5)+2]), Integer.parseInt(dates[(i*5)+3]),
                         Integer.parseInt(dates[(i*5)+4]), flights[i]);
 
