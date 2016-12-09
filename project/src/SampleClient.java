@@ -164,7 +164,20 @@ public class SampleClient{
 
             for(int i = 0; i < flights.length; i++){
 
-                travel.createTravelMethod(travel.getAirlineName(i), departures[i], arrivals[i], Integer.parseInt(dates[i]),
+                String airlineName;
+
+                if(i < 2){
+
+                    airlineName = airlines[0];
+
+                }
+                else{
+
+                    airlineName = airlines[1];
+
+                }
+
+                travel.createTravelMethod(airlineName, departures[i], arrivals[i], Integer.parseInt(dates[i]),
                     Integer.parseInt(dates[(i*5)+1]), Integer.parseInt(dates[(i*5)+2]), Integer.parseInt(dates[(i*5)+3]),
                         Integer.parseInt(dates[(i*5)+4]), flights[i]);
 
