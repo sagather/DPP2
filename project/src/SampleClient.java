@@ -77,6 +77,7 @@ public class SampleClient{
         switch(c){
 
             case 0:  System.exit(0);
+
                     break;
             case 1:  createFromFile();
                     break;
