@@ -341,7 +341,7 @@ public class AirTravelFactory extends TravelFactory{
         }
         s += "\nAirlines:\n";
         for(Airline line : airlines){
-            s = line.toString() + "\n";
+            s += line.toString() + "\n";
         }
         s += "\nFlights:\n";
         for(Flight fly : flights){
