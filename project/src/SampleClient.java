@@ -1,3 +1,5 @@
+import airtravel.SeatClass;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -85,7 +87,7 @@ public class SampleClient{
                     break;
             case 4: changeSeatClassPrice();
                     break;
-            case 5: //bookSpecific();
+            case 5: bookSpecific();
                     break;
             case 6: //BookPreference();
                     break;
@@ -198,9 +200,45 @@ public class SampleClient{
         int price = kb.nextInt();
     }
 
-    public static void changeSeatClassPrice()
+    public static void changeSeatClassPrice()//Not fully implemented, if time allowed I would search through the given associated prices, and swap them as needed
     {
+        Scanner kb = new Scanner(System.in);
+        System.out.println("Please enter desired class to change the price in (Must be ECONOMY, BUSINESS, or FIRST): ");
+        String seatClass = kb.nextLine();
+        System.out.println("Please enter desired price: ");
+        int price = kb.nextInt();
+    }
 
+    public static void bookSpecific()
+    {
+        try {
+            Scanner kb = new Scanner(System.in);
+            System.out.println("Please enter desired Airline: ");
+            String iAirline = kb.nextLine();
+            System.out.println("Please enter desired Flight number: ");
+            String iFlight = kb.nextLine();
+            System.out.println("Please enter desired Seat Class: ");
+            String iClass = kb.nextLine();
+            SeatClass classend;
+            if (iClass.equalsIgnoreCase("first")) {
+                classend = SeatClass.FIRST;
+            } else if (iClass.equalsIgnoreCase("economy")) {
+                classend = SeatClass.ECONOMY;
+            } else if (iClass.equalsIgnoreCase("business")) {
+                classend = SeatClass.BUSINESS;
+            } else {
+                throw new IllegalArgumentException("Please only enter available class types!");
+            }
+            System.out.println("Please enter desired seat row number: ");
+            int row = kb.nextInt();
+            System.out.println("Please enter desired letter: ");
+            char letter = kb.next().charAt(0);
+            travel.bookSpecific(iAirline, iFlight, classend, row, letter);
+        }
+        catch (IllegalArgumentException e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void writeOutput(){
