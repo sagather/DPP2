@@ -103,17 +103,17 @@ public class SampleClient{
                     break;
             case 13:  //flightCrete();
                     break;
-            case 14:  //
+            case 14:  //displayAirlineStat();
                     break;
-            case 15:
+            case 15:  //cruiseCreate();
                     break;
-            case 16:
+            case 16:  //portCreate();
                     break;
-            case 17:
+            case 17:  //tripCreate();
                     break;
-            case 18:
+            case 18:  //shipCreate();
                     break;
-            case 19:
+            case 19:  //displayCruiseLineStat();
                     break;
             default:
                 System.exit(0);
