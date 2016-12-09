@@ -189,6 +189,7 @@ public class SampleClient{
         int year = kb.nextInt();
     }
 
+
     public static void priceChange() {//Not fully implemented, if time allowed I would search through the given associated prices, and swap them as needed
         Scanner kb = new Scanner(System.in);
         System.out.println("Please enter desired section to change the price in (Must be ECONOMY, BUSINESS, or FIRST): ");
