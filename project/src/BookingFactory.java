@@ -14,9 +14,6 @@ public class BookingFactory
             case "Cruise":
                 newTravel = new SeaTravelFactory();
                 break;
-            case "Train":
-                newTravel = new LandTravelFactory();
-                break;
         }
 
     }
