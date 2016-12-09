@@ -2,10 +2,8 @@
  * Created by bcxtr on 12/7/2016.
  */
 //Megan Ostby & Sam Agather
-import airtravel.FlightSection;
 import airtravel.SeatClass;
 import seatravel.*;
-import airtravel.SeatClass;
 
 //NOT Implemented, Lack of time
 
@@ -13,9 +11,9 @@ import java.util.ArrayList;
 
 public class SeaTravelFactory extends TravelFactory{
     private ArrayList<Port> ports = new ArrayList<Port>();
-    private ArrayList<Cruise> airlines = new ArrayList<Cruise>();
-    private ArrayList<Trip> flights = new ArrayList<Trip>();
-    private FlightSection section;
+    private ArrayList<Cruise> cruises = new ArrayList<Cruise>();
+    private ArrayList<Trip> trips = new ArrayList<Trip>();
+    private CabinSection section;
 
     public void createTransport(String port)
     {
@@ -42,14 +40,6 @@ public class SeaTravelFactory extends TravelFactory{
 
     @Override
     public void bookPreference(String iAirline, String iFlight, SeatClass iClass, char iSeat) {
-
-    }
-
-    public void createSection(String s) {
-
-    }
-
-    public void bookSpecific() {
 
     }
 

@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.regex.Pattern;
 //Megan Ostby & Sam Agather
 /**
  * Created by bcxtr on 12/8/2016.
@@ -112,16 +111,6 @@ public class FileParser {
 
         parse();
         return seats.split(",");       }
-
-    public static void print(){
-
-        System.out.println(flights);
-        System.out.println(dates);
-        System.out.println(dep);
-        System.out.println(arr);
-        System.out.println(seats);
-
-    }
 
 
 }
