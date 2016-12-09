@@ -7,7 +7,7 @@ public abstract class TravelFactory {
 
     public abstract void  createCompany(String s);
 
-
+    //public abstract void create
 
 }
 

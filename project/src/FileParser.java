@@ -24,25 +24,44 @@ public class FileParser {
 
         String interim = input.get(0);
         interim = interim.substring(0, interim.length() - 1);
-        airlines = interim.split("\\], ");
+        String[] inBetween = interim.split("\\], ");
 
+        interim = "";
 
+        for(String s : inBetween){
 
-        print();
+            interim = interim + s + "[";
+
+        }
+
+        inBetween = interim.split("\\[");
+        interim = inBetween[0] + " " + inBetween[5];
+        airlines = interim.split(" ");
+        interim = "";
+
+        for(int i = 1; i < inBetween.length - 1; i++){
+
+            if(i == 5){
+                i++;
+            }
+
+            interim = interim + " " + inBetween[i];
+
+        }
 
         return airlines;
 
     }
 
-    public static void parseFlight(String[] flights){
+    public static void parseFlight(String[] f){
 
-
+        print();
 
     }
 
     public static void print(){
 
-        for(String s: airlines){
+        for(String s: flights){
             System.out.println(s);
         }
 

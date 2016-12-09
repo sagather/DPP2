@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 public class SampleClient{
 
+    static TravelFactory travel;
+
     public static void main(String[] args){
 
         displayUI();
@@ -130,11 +132,13 @@ public class SampleClient{
     public static void createFromFile(){
         //Open file
 
-        TravelFactory travel = new AirTravelFactory();
+        if(travel == null){
+            travel = new AirTravelFactory();
+        }
 
         try{
 
-            File file = FileReader.openFile("C:/Users/Megan Ostby/IdeaProjects/DPP2/project/src/input.txt");
+            File file = FileReader.openFile("C:/Users/bcxtr/IdeaProjects/DPP2/project/src/input.txt");
             ArrayList<String> construction = FileReader.readFile(file);
             String []  airports = FileParser.parseAirports(construction);
 
@@ -146,6 +150,11 @@ public class SampleClient{
 
             construction.remove(0);
             String[] airlines = FileParser.parseAirlines(construction);
+            for(String s : airlines){
+
+                travel.createCompany(s);
+
+            }
 
         }
         catch (FileNotFoundException e){
