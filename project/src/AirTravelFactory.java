@@ -251,7 +251,8 @@ public class AirTravelFactory extends TravelFactory{
 
     }
 
-    public void bookSeat(String iAirline, String iFlight, SeatClass iClass, int iRow, char iSeat){
+    @Override
+    public void bookSpecific(String iAirline, String iFlight, SeatClass iClass, int iRow, char iSeat){
         Boolean airlineGood = false;
         try{
             for(Airline sAirline:airlines)
@@ -287,7 +288,8 @@ public class AirTravelFactory extends TravelFactory{
         }
     }
 
-    public void bookSeatPreference(String iAirline, String iFlight, SeatClass iClass, char iSeat)//iSeat acts as Window or Aisle preference, A or W ignore case
+    @Override
+    public void bookPreference(String iAirline, String iFlight, SeatClass iClass, char iSeat)//iSeat acts as Window or Aisle preference, A or W ignore case
     {
         Boolean airlineGood = false;
         try{
