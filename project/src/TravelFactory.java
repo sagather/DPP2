@@ -22,6 +22,8 @@ public abstract class TravelFactory {
 
     public abstract void priceChange(String iAirline, String iFlight, int price);
 
+    public abstract void changeSeatClassPrice(String iAirline, String iOrgin, String iDestination, SeatClass iClass, int price);
+
     public abstract String getAirlineName(int index);
 
     public abstract String displaySystemDetails();

@@ -378,6 +378,47 @@ public class AirTravelFactory extends TravelFactory{
         }
     }
 
+    @Override
+    public void changeSeatClassPrice(String iAirline, String iOrgin, String iDestination, SeatClass iClass, int price) {
+        Boolean airlineGood = false;
+        try{
+            for(Airline sAirline:airlines)
+            {
+                if (sAirline.getName().equals(iAirline))
+                {
+                    airlineGood = true;
+                }
+            }
+            if(airlineGood) {
+                for (Flight fly : flights) {
+                    if (fly.getArrivalCity().equals(iDestination)&&fly.getDepartureCity().equals(iOrgin))
+                    {
+                        if(fly.getFlightSection(iClass)!= null) {
+                            this.section = fly.getFlightSection(iClass);
+                            this.section.setPrice(price);
+                            return;
+                        }
+                        else
+                        {
+                            throw new IllegalArgumentException("Given class must exist within the selected flight!");
+                        }
+                    }
+                    else
+                    {
+                        throw new IllegalArgumentException("Airline must have a flight with given departure and arrival cites1!");
+                    }
+                }
+            }
+            else
+            {
+                throw new IllegalArgumentException("Airline name is not valid.");
+            }
+        }
+        catch(IllegalArgumentException e){
+            System.out.println("Could not change price. " + e.getMessage());
+        }
+    }
+
 
     public String displaySystemDetails(){
 

@@ -21,31 +21,29 @@ public class SeaTravelFactory extends TravelFactory{
     }
 
     public void createCompany(String cruise){
-
     }
 
     public void createTravelMethod(String transport, String depart, String arrive, int iYear, int month, int day, int hour, int minute, String line){
-
     }
 
     @Override
     public void createSection(String iAirline, String iFlightNumber, int iRow, char iCols, SeatClass iClass, int price) {
-
     }
 
     @Override
     public void bookSpecific(String iAirline, String iFlight, SeatClass iClass, int iRow, char iSeat) {
-
     }
 
     @Override
     public void bookPreference(String iAirline, String iFlight, SeatClass iClass, char iSeat) {
-
     }
 
     @Override
     public void priceChange(String iAirline, String iFlight, int price) {
+    }
 
+    @Override
+    public void changeSeatClassPrice(String iAirline, String iOrgin, String iDestination, SeatClass iClass, int price) {
     }
 
     @Override
