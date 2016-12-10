@@ -8,6 +8,7 @@ import seatravel.*;
 //NOT Implemented, Lack of time
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class SeaTravelFactory extends TravelFactory{
     private ArrayList<Port> ports = new ArrayList<Port>();
@@ -69,99 +70,29 @@ public class SeaTravelFactory extends TravelFactory{
     }
 
     public void createTravelMethod(String transport, String depart, String arrive, int iYear, int month, int day, int hour, int minute, String line){
-        Boolean cruiseGood = false;
-        Boolean departureGood = false;
-        Boolean arrivalGood = false;
-        Boolean dayGood = false;
-        Boolean monthGood = false;
-        Boolean hourGood = false;
-        Boolean minGood = false;
 
-        try {
-            for(Cruise c:cruises)
-            {
-                if (c.getName().equals(transport)) {
-                    cruiseGood = true;
-                }
-            }
-            //invalid airports
-            for(Port p:ports)
-            {
-                if (p.getName().equals(depart))
-                {
-                    departureGood =true;
-                }
-            }
-            for(Port p1:ports)
-            {
-                if (p1.getName().equals(arrive)) {
-                    arrivalGood = true;
-                }
-            }
-            //invalid dates
-            if(day >= 1 && day <= 31)
-            {
-                dayGood = true;
-            }
+        Scanner kb = new Scanner(System.in);
+        System.out.println("Enter the ship name");
+        String ship = kb.nextLine();
+        System.out.println("Enter the arrival year");
+        int aYear = kb.nextInt();
+        kb.nextLine();
+        System.out.println("Enter the arrival month");
+        int aMonth = kb.nextInt();
+        kb.nextLine();
+        System.out.println("Enter the arrival day");
+        int aDay = kb.nextInt();
+        kb.nextLine();
 
-            if(month >= 1 && month <= 12)
-            {
-                monthGood = true;
-            }
-            if(hour >=0 && hour <= 24)
-            {
-                hourGood = true;
-            }
-            if(minute >= 0 && minute <= 59)
-            {
-                minGood = true;
-            }
+        createTrip(ship, transport, depart, arrive, iYear, month, day, aYear, aMonth, aDay);
 
-            if(cruiseGood && arrivalGood  && departureGood && dayGood && monthGood && hourGood &&minGood) {
-                /*Trip trip = new Trip(line, depart, arrive, iYear, month, day,hour,minute, line);
-                System.out.println("Creation of Trip " + line + " was successful.");
-                trips.add(trip);*/
-            }
-            else
-            {
-                if(!cruiseGood)
-                {
-                    throw new IllegalArgumentException("Cruise must match an existing cruise name!");
-                }
-                else if(!departureGood)
-                {
-                    throw new IllegalArgumentException("Departure city must match an existing airport name!");
-                }
-                else if(!arrivalGood)
-                {
-                    throw new IllegalArgumentException("Arrival city must match an existing airport name!");
-                }
-                else if(!dayGood)
-                {
-                    throw new IllegalArgumentException("Day must be an actual calender value!");
-                }
-                else if(!monthGood)
-                {
-                    throw new IllegalArgumentException("Month must be an actual calender value!");
-                }
-                else if(!hourGood)
-                {
-                    throw new IllegalArgumentException("Hour must be within the 24 hour clock!");
-                }
-                else if(!minGood)
-                {
-                    throw new IllegalArgumentException("Minute must be an acceptable value!");
-                }
-            }
-        }
-        catch(IllegalArgumentException e)
-        {
-            System.out.println("Flight: "+ line + " This flight was not created. " + e.getMessage());
-        }
     }
 
     @Override
     public void createSection(String iAirline, String iFlightNumber, int iRow, char iCols, SeatClass iClass, int price) {
+
+
+
     }
 
     @Override
@@ -186,7 +117,95 @@ public class SeaTravelFactory extends TravelFactory{
     }
 
     public String displaySystemDetails(){
-        return null;
+
+        String s = "[";
+
+        for(Port port : ports){
+            s = s+ port.toString() + ", ";
+        }
+        s += "]{";
+
+        for(Trip t : trips){
+            s += t.toString();
+        }
+
+        return s;
+    }
+
+    private void createTrip(String shipName, String cruiseName, String departurePort, String arrivalPort,int dYear,int dMonth, int dDay,int aYear, int aMonth, int aDay){
+
+        Boolean airlineGood = false;
+        Boolean departureGood = false;
+        Boolean arrivalGood = false;
+        Boolean dayGood = false;
+        Boolean monthGood = false;
+
+        try {
+            for(Cruise c:cruises)
+            {
+                if (c.getName().equals(cruiseName)) {
+                    airlineGood = true;
+                }
+            }
+            //invalid airports
+            for(Port p:ports)
+            {
+                if (p.getName().equals(departurePort))
+                {
+                    departureGood =true;
+                }
+            }
+            for(Port p:ports)
+            {
+                if (p.getName().equals(arrivalPort)) {
+                    arrivalGood = true;
+                }
+            }
+            //invalid dates
+            if(dDay >= 1 && dDay <= 31 && aDay >= 1 && aDay <= 31)
+            {
+                dayGood = true;
+            }
+
+            if(dMonth >= 1 && dMonth <= 12 && dMonth >= 1 && dMonth <=12)
+            {
+                monthGood = true;
+            }
+
+            if(airlineGood && arrivalGood  && departureGood && dayGood && monthGood ) {
+                Trip t = new Trip(shipName, cruiseName, departurePort, arrivalPort, dYear, dMonth, dDay,aYear,aMonth, aDay);
+                System.out.println("Creation of Trip " + shipName + " was successful.");
+                trips.add(t);
+            }
+            else
+            {
+                if(!airlineGood)
+                {
+                    throw new IllegalArgumentException("Cruise must match an existing Cruise name!");
+                }
+                else if(!departureGood)
+                {
+                    throw new IllegalArgumentException("Departure city must match an existing port name!");
+                }
+                else if(!arrivalGood)
+                {
+                    throw new IllegalArgumentException("Arrival city must match an existing port name!");
+                }
+                else if(!dayGood)
+                {
+                    throw new IllegalArgumentException("Day must be an actual calender value!");
+                }
+                else if(!monthGood)
+                {
+                    throw new IllegalArgumentException("Month must be an actual calender value!");
+                }
+            }
+        }
+        catch(IllegalArgumentException e)
+        {
+            System.out.println("Trip: "+ shipName + " This flight was not created. " + e.getMessage());
+        }
+
     }
 
 }
