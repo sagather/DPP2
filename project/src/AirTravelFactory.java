@@ -313,6 +313,7 @@ public class AirTravelFactory extends TravelFactory{
                             Seat theSeat = section.hasAvailableType(iSeat);
                             if(theSeat!=null) {
                                 section.bookSeat(theSeat.getRow(),theSeat.getCol(), iClass);
+                                return;
                             }
                         }
 

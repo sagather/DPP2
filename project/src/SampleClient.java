@@ -87,7 +87,7 @@ public class SampleClient{
                     break;
             case 5: bookSpecific(); //Fully Implemented
                     break;
-            case 6: BookPreference(); //Created, but no time to test
+            case 6: BookPreference(); //Fully Implemented
                     break;
             case 7: System.out.println(travel.displaySystemDetails());
                     break;
