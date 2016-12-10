@@ -52,12 +52,12 @@ public class SampleClient{
         System.out.println("\n1:  Create Airport System with input file");
         System.out.println("2:  Change the price of seats in a flight section");
         System.out.println("3:  Search for seats (Not Fully Implemented)");
-        System.out.println("4:  Change seat class pricing for flight destination [ ] and arrival [ ](Not Fully Implemented) ");
+        System.out.println("4:  Change seat class pricing for flight destination [ ] and arrival [ ]");
         System.out.println("5:  Book a seat on a flight");
         System.out.println("6:  Book a seat by seat class and window/aisle preference");
         System.out.println("7:  Display Airport System details");
         System.out.println("8:  Write system details to file");
-        System.out.println("9:  Display Admin UI (None of admin UI is implemented)\n");
+        System.out.println("9:  Display Admin UI\n");
         System.out.println("---------------End UI, press 0 to quit--------");
 
         choice = kb.nextInt();
@@ -84,7 +84,7 @@ public class SampleClient{
                     break;
             case 3: searchSeats(); //Not fully implemented
                     break;
-            case 4: changeSeatClassPrice(); //Not fully implemented
+            case 4: changeSeatClassPrice(); //Fully Implemented
                     break;
             case 5: bookSpecific(); //Fully Implemented
                     break;
@@ -248,10 +248,27 @@ public class SampleClient{
     public static void changeSeatClassPrice()//Not fully implemented, if time allowed I would search through the given associated prices, and swap them as needed
     {
         Scanner kb = new Scanner(System.in);
+        System.out.println("Please enter desired airline: ");
+        String Air = kb.nextLine();
+        System.out.println("Please enter desired origin city: ");
+        String origin = kb.nextLine();
+        System.out.println("Please enter desired destination city: ");
+        String destination = kb.nextLine();
         System.out.println("Please enter desired class to change the price in (Must be ECONOMY, BUSINESS, or FIRST): ");
         String seatClass = kb.nextLine();
+        SeatClass classend;
+        if (seatClass.equalsIgnoreCase("first")) {
+            classend = SeatClass.FIRST;
+        } else if (seatClass.equalsIgnoreCase("economy")) {
+            classend = SeatClass.ECONOMY;
+        } else if (seatClass.equalsIgnoreCase("business")) {
+            classend = SeatClass.BUSINESS;
+        } else {
+            throw new IllegalArgumentException("Please only enter available class types!");
+        }
         System.out.println("Please enter desired price: ");
         int price = kb.nextInt();
+        travel.changeSeatClassPrice(Air,origin,destination,classend,price);
     }
 
     public static void bookSpecific()
@@ -426,7 +443,7 @@ public class SampleClient{
 
     public static void displayCruiseLineStat(){
 
-        System.out.println(travel.displaySystemDetails());
+        System.out.println(travel2.displaySystemDetails());
 
     }
 
