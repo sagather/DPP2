@@ -29,7 +29,7 @@ public class Trip
         this.dDay = dDay;
         this.aYear = aYear;
         this.aMonth = aMonth;
-        this.dDay = aDay;
+        this.aDay = aDay;
     }
 
     public String toString()
