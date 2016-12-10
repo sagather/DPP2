@@ -419,7 +419,7 @@ public class SampleClient{
 
     public static void shipCreate(){
 
-        //eeeeeeeeeeeeeh... waht
+        //eeeeeeeeeeeeeh... waaht
 
     }
 
