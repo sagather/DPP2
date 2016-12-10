@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class SampleClient{
 
     static TravelFactory travel;
+    static TravelFactory travel2;
 
     public static void main(String[] args){
         displayUI();
@@ -362,12 +363,12 @@ public class SampleClient{
 
     public static void cruiseCreate(){
 
-        travel = new SeaTravelFactory();
+        travel2 = new SeaTravelFactory();
 
         System.out.println("Enter Cruise company name: ");
 
         Scanner kb = new Scanner(System.in);
-        travel.createCompany(kb.nextLine());
+        travel2.createCompany(kb.nextLine());
 
 
     }
@@ -378,7 +379,7 @@ public class SampleClient{
 
         System.out.println("Enter port name: ");
 
-        travel.createTransport(kb.nextLine());
+        travel2.createTransport(kb.nextLine());
 
     }
 
@@ -413,7 +414,7 @@ public class SampleClient{
         minute = kb.nextInt();
         kb.nextLine();
 
-        travel.createTravelMethod(cruise, departure, arrival, year, month, day, hour, minute, lineNumber);
+        travel2.createTravelMethod(cruise, departure, arrival, year, month, day, hour, minute, lineNumber);
 
     }
 
