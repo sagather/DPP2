@@ -223,8 +223,7 @@ public class FlightSection {
     }
 
     public String toString(){
-        return "" + this.sectType+ ":"+this.price + "S:" + this.rows;
-
+        return "" + sClass.toString()+ ":"+this.price + ":"+ this.sectType+ ":" + this.rows;
     }
 
     public boolean classCompare(SeatClass iClass){

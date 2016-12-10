@@ -271,6 +271,7 @@ public class AirTravelFactory extends TravelFactory{
 
                         if (section.hasAvailableSeats()) {
                             section.bookSeat(iRow, iSeat, iClass);
+                            return;
                         }
 
                     } else {

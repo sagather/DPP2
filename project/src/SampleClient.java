@@ -77,7 +77,7 @@ public class SampleClient{
         switch(c){
             case 0:  System.exit(0);
                     break;
-            case 1:  createFromFile();
+            case 1:  createFromFile();//Fully Implemented
                     break;
             case 2: priceChange(); //Not fully implemented
                     break;
@@ -85,7 +85,7 @@ public class SampleClient{
                     break;
             case 4: changeSeatClassPrice(); //Not fully implemented
                     break;
-            case 5: bookSpecific();
+            case 5: bookSpecific(); //Fully Implemented
                     break;
             case 6: BookPreference(); //Created, but no time to test
                     break;
