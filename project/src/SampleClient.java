@@ -216,11 +216,21 @@ public class SampleClient{
         }
     }
 
-    public static void searchSeats() //Not fully implemented, If time allowed I would create methods within travel factory to check each
+    public static void searchSeats()
     {
         Scanner kb = new Scanner(System.in);
         System.out.println("Please enter desired seat class: ");
         String seatClass = kb.nextLine();
+        SeatClass classend;
+        if (seatClass.equalsIgnoreCase("first")) {
+            classend = SeatClass.FIRST;
+        } else if (seatClass.equalsIgnoreCase("economy")) {
+            classend = SeatClass.ECONOMY;
+        } else if (seatClass.equalsIgnoreCase("business")) {
+            classend = SeatClass.BUSINESS;
+        } else {
+            throw new IllegalArgumentException("Please only enter available class types!");
+        }
         System.out.println("Please enter desired departure airport: ");
         String departAir = kb.nextLine();
         System.out.println("Please enter desired arrival airport: ");
@@ -231,10 +241,12 @@ public class SampleClient{
         int day = kb.nextInt();
         System.out.println("Please enter desired departure year: ");
         int year = kb.nextInt();
+        travel.searchSeats(classend,departAir,arriveAir,month,day,year);
     }
 
 
-    public static void priceChange() {//Not fully implemented, if time allowed I would search through the given associated prices, and swap them as needed
+    public static void priceChange()
+    {
         Scanner kb = new Scanner(System.in);
         System.out.println("Please enter desired airline: ");
         String departAir = kb.nextLine();
@@ -245,7 +257,7 @@ public class SampleClient{
         travel.priceChange(departAir,flightNum,price);
     }
 
-    public static void changeSeatClassPrice()//Not fully implemented, if time allowed I would search through the given associated prices, and swap them as needed
+    public static void changeSeatClassPrice()
     {
         Scanner kb = new Scanner(System.in);
         System.out.println("Please enter desired airline: ");

@@ -360,6 +360,8 @@ public class AirTravelFactory extends TravelFactory{
                         {
                             fly.getFlightSection(SeatClass.BUSINESS).setPrice(price);
                         }
+                        System.out.println("Successfully changed the price to $" + price + ". For flight number "
+                                + iFlight + " on " + iAirline + " airline.");
                         return;
                     }
                     else
@@ -379,7 +381,7 @@ public class AirTravelFactory extends TravelFactory{
     }
 
     @Override
-    public void changeSeatClassPrice(String iAirline, String iOrgin, String iDestination, SeatClass iClass, int price) {
+    public void changeSeatClassPrice(String iAirline, String iOrigin, String iDestination, SeatClass iClass, int price) {
         Boolean airlineGood = false;
         try{
             for(Airline sAirline:airlines)
@@ -391,11 +393,13 @@ public class AirTravelFactory extends TravelFactory{
             }
             if(airlineGood) {
                 for (Flight fly : flights) {
-                    if (fly.getArrivalCity().equals(iDestination)&&fly.getDepartureCity().equals(iOrgin))
+                    if (fly.getArrivalCity().equals(iDestination)&&fly.getDepartureCity().equals(iOrigin))
                     {
                         if(fly.getFlightSection(iClass)!= null) {
                             this.section = fly.getFlightSection(iClass);
-                            this.section.setPrice(price);
+
+                            System.out.println("Successfully changed the price of " + iClass.toString() + " class to $" + price + ". For a flight on "
+                                    + iAirline + " airline, departing from " + iOrigin + " and arriving at " + iDestination);
                             return;
                         }
                         else
@@ -416,6 +420,32 @@ public class AirTravelFactory extends TravelFactory{
         }
         catch(IllegalArgumentException e){
             System.out.println("Could not change price. " + e.getMessage());
+        }
+    }
+
+    @Override
+    public void searchSeats(SeatClass iClass, String iOrigin, String iDestination, int iMonth, int iDay, int iYear)
+    {
+        for (Flight fly : flights) {
+            if (fly.getArrivalCity().equals(iDestination)&&fly.getDepartureCity().equals(iOrigin))
+            {
+                if(fly.getFlightSection(iClass)!= null) {
+                    this.section = fly.getFlightSection(iClass);
+                    if (section.hasAvailableSeats()) {
+                        System.out.println("Available flights: ");
+                        System.out.println(section.toString());
+                        return;
+                    }
+                }
+                else
+                {
+                    throw new IllegalArgumentException("Given class must exist within the selected flight!");
+                }
+            }
+            else
+            {
+                throw new IllegalArgumentException("Airline must have a flight with given departure and arrival cites1!");
+            }
         }
     }
 

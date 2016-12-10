@@ -22,7 +22,9 @@ public abstract class TravelFactory {
 
     public abstract void priceChange(String iAirline, String iFlight, int price);
 
-    public abstract void changeSeatClassPrice(String iAirline, String iOrgin, String iDestination, SeatClass iClass, int price);
+    public abstract void changeSeatClassPrice(String iAirline, String iOrigin, String iDestination, SeatClass iClass, int price);
+
+    public abstract void searchSeats(SeatClass seatClass, String iOrigin, String iDestination, int iMonth, int iDay, int iYear);
 
     public abstract String getAirlineName(int index);
 
