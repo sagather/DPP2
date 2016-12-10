@@ -352,18 +352,19 @@ public class SampleClient{
     }
 
     public static void airportCreate(){
-
         Scanner kb = new Scanner(System.in);
-
-        travel.createTransport(kb.nextLine());
+        System.out.println("Please Enter Airport name: ");
+        String name = kb.nextLine();
+        travel.createTransport(name);
 
     }
 
     public static void airlineCreate(){
 
         Scanner kb = new Scanner(System.in);
-
-        travel.createCompany(kb.nextLine());
+        System.out.println("Please Enter airline name: ");
+        String name = kb.nextLine();
+        travel.createCompany(name);
     }
 
     public static void flightCreate(){
@@ -372,18 +373,27 @@ public class SampleClient{
         int year, month, day, hour, minute;
 
         Scanner kb = new Scanner(System.in);
+        System.out.println("Please Enter airline name: ");
         airline = kb.nextLine();
+        System.out.println("Please Enter departure city name: ");
         departure = kb.nextLine();
+        System.out.println("Please Enter arrival city name: ");
         arrival = kb.nextLine();
+        System.out.println("Please Enter flight number name: ");
         lineNumber = kb.nextLine();
+        System.out.println("Please Enter year: ");
         year = kb.nextInt();
+        System.out.println("Please Enter month: ");
         kb.nextLine();
+        System.out.println("Please Enter day: ");
         month = kb.nextInt();
         kb.nextLine();
         day = kb.nextInt();
         kb.nextLine();
+        System.out.println("Please Enter hour name: ");
         hour = kb.nextInt();
         kb.nextLine();
+        System.out.println("Please Enter minute: ");
         minute = kb.nextInt();
         kb.nextLine();
 
