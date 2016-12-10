@@ -99,21 +99,21 @@ public class SampleClient{
                     break;
             case 11:  airportCreate();
                     break;
-            case 12:  //airlineCreate();
+            case 12:  airlineCreate();
                     break;
-            case 13:  //flightCrete();
+            case 13:  flightCreate();
                     break;
             case 14:  System.out.println(travel.displaySystemDetails());
                     break;
-            case 15:  //cruiseCreate();
+            case 15:  cruiseCreate();
                     break;
-            case 16:  //portCreate();
+            case 16:  portCreate();
                     break;
-            case 17:  //tripCreate();
+            case 17:  tripCreate();
                     break;
-            case 18:  //shipCreate();
+            case 18:  shipCreate();
                     break;
-            case 19:  //displayCruiseLineStat();
+            case 19:  displayCruiseLineStat();
                     break;
             default:
                 System.exit(0);
@@ -320,7 +320,109 @@ public class SampleClient{
 
     public static void airportCreate(){
 
-        //travel.createTransport();
+        Scanner kb = new Scanner(System.in);
+
+        travel.createTransport(kb.nextLine());
+
+    }
+
+    public static void airlineCreate(){
+
+        Scanner kb = new Scanner(System.in);
+
+        travel.createCompany(kb.nextLine());
+    }
+
+    public static void flightCreate(){
+
+        String airline, departure, arrival, lineNumber;
+        int year, month, day, hour, minute;
+
+        Scanner kb = new Scanner(System.in);
+        airline = kb.nextLine();
+        departure = kb.nextLine();
+        arrival = kb.nextLine();
+        lineNumber = kb.nextLine();
+        year = kb.nextInt();
+        kb.nextLine();
+        month = kb.nextInt();
+        kb.nextLine();
+        day = kb.nextInt();
+        kb.nextLine();
+        hour = kb.nextInt();
+        kb.nextLine();
+        minute = kb.nextInt();
+        kb.nextLine();
+
+        travel.createTravelMethod(airline, departure, arrival, year, month, day, hour, minute, lineNumber);
+    }
+
+    public static void cruiseCreate(){
+
+        travel = new SeaTravelFactory();
+
+        System.out.println("Enter Cruise company name: ");
+
+        Scanner kb = new Scanner(System.in);
+        travel.createCompany(kb.nextLine());
+
+
+    }
+
+    public static void portCreate(){
+
+        Scanner kb = new Scanner(System.in);
+
+        System.out.println("Enter port name: ");
+
+        travel.createTransport(kb.nextLine());
+
+    }
+
+    public static void tripCreate(){
+
+        Scanner kb = new Scanner(System.in);
+        String cruise, departure, arrival, lineNumber;
+        int year, month, day, hour, minute;
+
+
+        System.out.println("Enter the cruise name: ");
+        cruise = kb.nextLine();
+        System.out.println("Enter the departure port: ");
+        departure = kb.nextLine();
+        System.out.println("Enter the arrival port: ");
+        arrival = kb.nextLine();
+        System.out.println("Enter the line number: ");
+        lineNumber = kb.nextLine();
+        System.out.println("Enter the year of departure: ");
+        year = kb.nextInt();
+        kb.nextLine();
+        System.out.println("Enter the month of departure: ");
+        month = kb.nextInt();
+        kb.nextLine();
+        System.out.println("Enter the day of departure: ");
+        day = kb.nextInt();
+        kb.nextLine();
+        System.out.println("Enter hour of departure: ");
+        hour = kb.nextInt();
+        kb.nextLine();
+        System.out.println("Enter minute of departure: ");
+        minute = kb.nextInt();
+        kb.nextLine();
+
+        travel.createTravelMethod(cruise, departure, arrival, year, month, day, hour, minute, lineNumber);
+
+    }
+
+    public static void shipCreate(){
+
+        //eeeeeeeeeeeeeh... waht
+
+    }
+
+    public static void displayCruiseLineStat(){
+
+        System.out.println(travel.displaySystemDetails());
 
     }
 
