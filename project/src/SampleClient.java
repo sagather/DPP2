@@ -49,11 +49,11 @@ public class SampleClient{
 
         System.out.println("---------------General UI--------------------");
         System.out.println("\n1:  Create Airport System with input file");
-        System.out.println("2:  Change the price of seats in a flight section (Not Fully Implemented)");
+        System.out.println("2:  Change the price of seats in a flight section");
         System.out.println("3:  Search for seats (Not Fully Implemented)");
         System.out.println("4:  Change seat class pricing for flight destination [ ] and arrival [ ](Not Fully Implemented) ");
         System.out.println("5:  Book a seat on a flight");
-        System.out.println("6:  Book a seat by seat class and window/aisle preference");//Started, not completed
+        System.out.println("6:  Book a seat by seat class and window/aisle preference");
         System.out.println("7:  Display Airport System details");
         System.out.println("8:  Write system details to file");
         System.out.println("9:  Display Admin UI (None of admin UI is implemented)\n");
@@ -79,7 +79,7 @@ public class SampleClient{
                     break;
             case 1:  createFromFile();//Fully Implemented
                     break;
-            case 2: priceChange(); //Not fully implemented
+            case 2: priceChange(); //Fully Implemented
                     break;
             case 3: searchSeats(); //Not fully implemented
                     break;
@@ -89,13 +89,13 @@ public class SampleClient{
                     break;
             case 6: BookPreference(); //Fully Implemented
                     break;
-            case 7: System.out.println(travel.displaySystemDetails());
+            case 7: System.out.println(travel.displaySystemDetails());//Fully Implemented
                     break;
-            case 8:  writeOutput();
+            case 8:  writeOutput();//Fully Implemented
                     break;
-            case 9:  displayAdminUI();
+            case 9:  displayAdminUI();//Fully Implemented
                     break;
-            case 10:  displayUI();
+            case 10:  displayUI();//Fully Implemented
                     break;
             case 11:  airportCreate();
                     break;
@@ -235,10 +235,13 @@ public class SampleClient{
 
     public static void priceChange() {//Not fully implemented, if time allowed I would search through the given associated prices, and swap them as needed
         Scanner kb = new Scanner(System.in);
-        System.out.println("Please enter desired section to change the price in (Must be ECONOMY, BUSINESS, or FIRST): ");
-        String seatClass = kb.nextLine();
+        System.out.println("Please enter desired airline: ");
+        String departAir = kb.nextLine();
+        System.out.println("Please enter desired flight number: ");
+        String flightNum = kb.nextLine();
         System.out.println("Please enter desired price: ");
         int price = kb.nextInt();
+        travel.priceChange(departAir,flightNum,price);
     }
 
     public static void changeSeatClassPrice()//Not fully implemented, if time allowed I would search through the given associated prices, and swap them as needed

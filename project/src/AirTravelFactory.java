@@ -333,6 +333,53 @@ public class AirTravelFactory extends TravelFactory{
         }
     }
 
+    @Override
+    public void priceChange(String iAirline, String iFlight, int price)
+    {
+        Boolean airlineGood = false;
+        try{
+            for(Airline sAirline:airlines)
+            {
+                if (sAirline.getName().equals(iAirline))
+                {
+                    airlineGood = true;
+                }
+            }
+            if(airlineGood) {
+                for (Flight fly : flights) {
+                    Boolean isAflight = false;
+                    if (fly.getID().equals(iFlight)) {
+                        if(fly.getFlightSection(SeatClass.FIRST) != null)
+                        {
+                            fly.getFlightSection(SeatClass.FIRST).setPrice(price);
+                        }
+                        if(fly.getFlightSection(SeatClass.ECONOMY) != null)
+                        {
+                            fly.getFlightSection(SeatClass.ECONOMY).setPrice(price);
+                        }
+                        if(fly.getFlightSection(SeatClass.BUSINESS) != null)
+                        {
+                            fly.getFlightSection(SeatClass.BUSINESS).setPrice(price);
+                        }
+                        isAflight =true;
+                    }
+                    else if(!isAflight)
+                    {
+                        throw new IllegalArgumentException("Flight ID must match!");
+                    }
+                }
+            }
+            else
+            {
+                throw new IllegalArgumentException("Airline name is not valid.");
+            }
+        }
+        catch(IllegalArgumentException e){
+            System.out.println("Could not change price. " + e.getMessage());
+        }
+    }
+
+
     public String displaySystemDetails(){
 
         String s = "[";
