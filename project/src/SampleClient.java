@@ -1,3 +1,4 @@
+import airtravel.Seat;
 import airtravel.SeatClass;
 
 import java.io.File;
@@ -10,9 +11,7 @@ public class SampleClient{
     static TravelFactory travel;
 
     public static void main(String[] args){
-
         displayUI();
-
     }
 
     public static void displayAdminUI(){
@@ -150,26 +149,68 @@ public class SampleClient{
             String[] departures = FileParser.parseDepartures();
             String[] arrivals = FileParser.parseArrivals();
             String[] seats = FileParser.parseSeats();
-            for(int i = 0; i < flights.length; i++){
+            int seatCounter = 0;
+            for(int i = 0; i < flights.length; i++) {
                 String airlineName;
 
-                if(i < 2){
+                if (i < 2) {
 
                     airlineName = airlines[0];
-                }
-                else{
+                } else {
 
                     airlineName = airlines[1];
                 }
-                travel.createTravelMethod(airlineName, departures[i], arrivals[i], Integer.parseInt(dates[i *5]),
-                    Integer.parseInt(dates[(i*5)+1]), Integer.parseInt(dates[(i*5)+2]), Integer.parseInt(dates[(i*5)+3]),
-                        Integer.parseInt(dates[(i*5)+4]), flights[i]);
-                //travel.createSection(airlineName,flights[i],);
+                travel.createTravelMethod(airlineName, departures[i], arrivals[i], Integer.parseInt(dates[i * 5]),
+                        Integer.parseInt(dates[(i * 5) + 1]), Integer.parseInt(dates[(i * 5) + 2]), Integer.parseInt(dates[(i * 5) + 3]),
+                        Integer.parseInt(dates[(i * 5) + 4]), flights[i]);
 
+                // String iAirline, String iFlightNumber, int iRow, char iCols, SeatClass iClass, int price
+                SeatClass iClass;
+                String[] seat1 = seats[seatCounter].split(":");
+                String[] seat2 = seats[seatCounter+1].split(":");
+                if(seat1[0].equals("E"))
+                {
+                    iClass = SeatClass.ECONOMY;
+                }
+                else if(seat1[0].equals("B"))
+                {
+                    iClass = SeatClass.BUSINESS;
+                }
+                else
+                {
+                    iClass = SeatClass.FIRST;
+                }
+                SeatClass iClass2;
+                if(seat2[0].equals("E"))
+                {
+                    iClass2 = SeatClass.ECONOMY;
+                }
+                else if(seat2[0].equals("B"))
+                {
+                    iClass2 = SeatClass.BUSINESS;
+                }
+                else
+                {
+                    iClass2 = SeatClass.FIRST;
+                }
+
+                int price = Integer.parseInt(seat1[1]);
+                int price2 = Integer.parseInt(seat2[1]);
+
+                char cols = (seat1[2]).charAt(0);
+                char cols2 = (seat2[2]).charAt(0);
+
+                int row = Integer.parseInt(seat1[3]);
+                int row2 = Integer.parseInt(seat2[3]);
+
+                travel.createSection(airlineName,flights[i], row, cols, iClass, price);
+                travel.createSection(airlineName,flights[i], row2,cols2,iClass2,price2);
+
+                seatCounter = seatCounter + 2;
             }
+
         }
         catch (FileNotFoundException e){
-
             System.out.println("File was not found" + e.getMessage());
         }
     }

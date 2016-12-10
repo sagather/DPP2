@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 //Megan Ostby & Sam Agather
 /**
  * Created by bcxtr on 12/8/2016.
@@ -110,7 +111,16 @@ public class FileParser {
     public static String[] parseSeats(){
 
         parse();
-        return seats.split(",");       }
+        String[] seat = seats.split(",|\\s");
+        List<String> list = new ArrayList<String>();
 
+        for(String s : seat) {
+            if(s != null && s.length() > 0) {
+                list.add(s);
+            }
+        }
 
+        seat = list.toArray(new String[list.size()]);
+        return seat;
+    }
 }

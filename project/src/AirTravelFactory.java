@@ -175,7 +175,7 @@ public class AirTravelFactory extends TravelFactory{
             }
 
             if(airlineGood) {
-                this.section = new FlightSection(iAirline, iFlightNumber, iRow, iCols, iClass);
+                this.section = new FlightSection(iAirline, iFlightNumber, iRow, iCols, iClass,price);
                 for (Flight fly : flights) {
 
                     if (fly.getID().equals(iFlightNumber))

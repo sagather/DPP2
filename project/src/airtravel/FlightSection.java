@@ -15,7 +15,7 @@ public class FlightSection {
     private char sectType;
     private int price;
 
-    public FlightSection(String iAirline, String iFlightNumber, int seatRows, char cols, SeatClass isClass){
+    public FlightSection(String iAirline, String iFlightNumber, int seatRows, char cols, SeatClass isClass,int price){
 
         try{
             if(seatRows > 100 ||  seatRows < 1){
@@ -37,6 +37,7 @@ public class FlightSection {
             this.sClass = isClass;
             this.rows = seatRows;
             this.cols = seatCols;
+            this.price = price;
         }
         catch(IllegalArgumentException e){
             System.out.println("Invalid number of rows and cols to create a flight");
