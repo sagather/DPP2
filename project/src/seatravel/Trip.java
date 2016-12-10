@@ -34,11 +34,12 @@ public class Trip
 
     public String toString()
     {
-        String trip = "Trip on " + this.cruiseName + " on " + shipName+ ", departing from " + this.departurePort + ", on " + this.dMonth + ", " + this.dDay + " " + this.dYear +
-                "returning on "+ this.aMonth +", "+ this.aDay +  " arriving at " + this.arrivalPort + ".\n";
+        String trip = this.shipName + "|" + this.dDay + ", " + this.dMonth + ", " + this.dDay + ", " + this.aYear + ", " + this.aMonth + ", " + this.aDay + "|";
+
+        trip += this.departurePort + "|" + this.arrivalPort + "[";
 
         for(CabinSection sect : section){
-            trip += sect.toString();
+            trip += sect.toString() + "], ";
         }
 
         return trip;

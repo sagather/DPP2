@@ -114,7 +114,7 @@ public class CabinSection
     }
 
     public String toString(){
-        return " For section " + sClass + " there is " + cabins.toString();
+        return "" + sClass.toString()+ ":"+this.rmNum + ":"+ this.sectType+ ":" + this.floor;
 
     }
 
