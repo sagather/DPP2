@@ -20,6 +20,8 @@ public abstract class TravelFactory {
 
     public abstract void bookPreference(String iAirline, String iFlight, SeatClass iClass, char iSeat);
 
+    public abstract void priceChange(String iAirline, String iFlight, int price);
+
     public abstract String getAirlineName(int index);
 
     public abstract String displaySystemDetails();

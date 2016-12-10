@@ -44,6 +44,11 @@ public class SeaTravelFactory extends TravelFactory{
     }
 
     @Override
+    public void priceChange(String iAirline, String iFlight, int price) {
+
+    }
+
+    @Override
     public String getAirlineName(int index) {
         return null;
     }
