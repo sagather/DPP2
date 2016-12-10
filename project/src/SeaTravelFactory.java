@@ -90,9 +90,6 @@ public class SeaTravelFactory extends TravelFactory{
 
     @Override
     public void createSection(String iAirline, String iFlightNumber, int iRow, char iCols, SeatClass iClass, int price) {
-
-
-
     }
 
     @Override
@@ -109,6 +106,10 @@ public class SeaTravelFactory extends TravelFactory{
 
     @Override
     public void changeSeatClassPrice(String iAirline, String iOrgin, String iDestination, SeatClass iClass, int price) {
+    }
+
+    @Override
+    public void searchSeats(SeatClass seatClass, String iOrigin, String iDestination, int iMonth, int iDay, int iYear) {
     }
 
     @Override

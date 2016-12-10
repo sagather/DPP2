@@ -409,7 +409,7 @@ public class AirTravelFactory extends TravelFactory{
                     }
                     else
                     {
-                        throw new IllegalArgumentException("Airline must have a flight with given departure and arrival cites1!");
+                        throw new IllegalArgumentException("Airline must have a flight with given departure and arrival cites!");
                     }
                 }
             }
@@ -430,21 +430,26 @@ public class AirTravelFactory extends TravelFactory{
             if (fly.getArrivalCity().equals(iDestination)&&fly.getDepartureCity().equals(iOrigin))
             {
                 if(fly.getFlightSection(iClass)!= null) {
+                    System.out.println("Available Flights and Pricing: ");
                     this.section = fly.getFlightSection(iClass);
                     if (section.hasAvailableSeats()) {
-                        System.out.println("Available flights: ");
-                        System.out.println(section.toString());
+                        System.out.println("FlightID: " + fly.getID() + "Price: " + section.getPrice());
+                        return;
+                    }
+                    else{
+                        System.out.println("Flight does not have any available seats!");
                         return;
                     }
                 }
                 else
                 {
-                    throw new IllegalArgumentException("Given class must exist within the selected flight!");
+                    System.out.println("Given class must exist within the needed flight!");
+                    return;
                 }
             }
             else
             {
-                throw new IllegalArgumentException("Airline must have a flight with given departure and arrival cites1!");
+                System.out.println("Given departure and arrival cites must exist!");
             }
         }
     }

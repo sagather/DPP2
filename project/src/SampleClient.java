@@ -82,7 +82,7 @@ public class SampleClient{
                     break;
             case 2: priceChange(); //Fully Implemented
                     break;
-            case 3: searchSeats(); //Not fully implemented
+            case 3: searchSeats(); //Fully implemented
                     break;
             case 4: changeSeatClassPrice(); //Fully Implemented
                     break;
