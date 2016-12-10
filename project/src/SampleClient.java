@@ -51,7 +51,7 @@ public class SampleClient{
         System.out.println("---------------General UI--------------------");
         System.out.println("\n1:  Create Airport System with input file");
         System.out.println("2:  Change the price of seats in a flight section");
-        System.out.println("3:  Search for seats (Not Fully Implemented)");
+        System.out.println("3:  Search for seats");
         System.out.println("4:  Change seat class pricing for flight destination [ ] and arrival [ ]");
         System.out.println("5:  Book a seat on a flight");
         System.out.println("6:  Book a seat by seat class and window/aisle preference");

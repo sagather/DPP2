@@ -81,4 +81,13 @@ public class Flight {
         return section.size();
     }
 
+    public boolean sameDay(int day, int month, int year)
+    {
+        if(this.day == day && this.month == month && this.year == year)
+        {
+            return true;
+        }
+        return false;
+    }
+
 }

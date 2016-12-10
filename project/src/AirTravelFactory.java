@@ -233,7 +233,6 @@ public class AirTravelFactory extends TravelFactory{
                 }
 
             }
-
             if(i == 0){
 
                 throw new IllegalArgumentException();
@@ -274,8 +273,6 @@ public class AirTravelFactory extends TravelFactory{
                             return;
                         }
 
-                    } else {
-                        throw new IllegalArgumentException("Flight ID must match!");
                     }
                 }
             }
@@ -317,10 +314,7 @@ public class AirTravelFactory extends TravelFactory{
                             }
                         }
 
-                    } else {
-                        throw new IllegalArgumentException("Flight ID must match!");
                     }
-
                 }
             }
             else
@@ -348,25 +342,18 @@ public class AirTravelFactory extends TravelFactory{
             if(airlineGood) {
                 for (Flight fly : flights) {
                     if (fly.getID().equals(iFlight)) {
-                        if(fly.getFlightSection(SeatClass.FIRST) != null)
-                        {
+                        if (fly.getFlightSection(SeatClass.FIRST) != null) {
                             fly.getFlightSection(SeatClass.FIRST).setPrice(price);
                         }
-                        if(fly.getFlightSection(SeatClass.ECONOMY) != null)
-                        {
+                        if (fly.getFlightSection(SeatClass.ECONOMY) != null) {
                             fly.getFlightSection(SeatClass.ECONOMY).setPrice(price);
                         }
-                        if(fly.getFlightSection(SeatClass.BUSINESS) != null)
-                        {
+                        if (fly.getFlightSection(SeatClass.BUSINESS) != null) {
                             fly.getFlightSection(SeatClass.BUSINESS).setPrice(price);
                         }
                         System.out.println("Successfully changed the price to $" + price + ". For flight number "
                                 + iFlight + " on " + iAirline + " airline.");
                         return;
-                    }
-                    else
-                    {
-                        throw new IllegalArgumentException("Flight ID must match!");
                     }
                 }
             }
@@ -393,23 +380,15 @@ public class AirTravelFactory extends TravelFactory{
             }
             if(airlineGood) {
                 for (Flight fly : flights) {
-                    if (fly.getArrivalCity().equals(iDestination)&&fly.getDepartureCity().equals(iOrigin))
-                    {
-                        if(fly.getFlightSection(iClass)!= null) {
+                    if (fly.getArrivalCity().equals(iDestination) && fly.getDepartureCity().equals(iOrigin)) {
+                        if (fly.getFlightSection(iClass) != null) {
                             this.section = fly.getFlightSection(iClass);
 
                             System.out.println("Successfully changed the price of " + iClass.toString() + " class to $" + price + ". For a flight on "
                                     + iAirline + " airline, departing from " + iOrigin + " and arriving at " + iDestination);
                             return;
                         }
-                        else
-                        {
-                            throw new IllegalArgumentException("Given class must exist within the selected flight!");
-                        }
-                    }
-                    else
-                    {
-                        throw new IllegalArgumentException("Airline must have a flight with given departure and arrival cites!");
+
                     }
                 }
             }
@@ -427,31 +406,25 @@ public class AirTravelFactory extends TravelFactory{
     public void searchSeats(SeatClass iClass, String iOrigin, String iDestination, int iMonth, int iDay, int iYear)
     {
         for (Flight fly : flights) {
-            if (fly.getArrivalCity().equals(iDestination)&&fly.getDepartureCity().equals(iOrigin))
-            {
-                if(fly.getFlightSection(iClass)!= null) {
-                    System.out.println("Available Flights and Pricing: ");
-                    this.section = fly.getFlightSection(iClass);
-                    if (section.hasAvailableSeats()) {
-                        System.out.println("FlightID: " + fly.getID() + "Price: " + section.getPrice());
-                        return;
-                    }
-                    else{
-                        System.out.println("Flight does not have any available seats!");
-                        return;
+            if (fly.getArrivalCity().equals(iDestination) && fly.getDepartureCity().equals(iOrigin)) {
+                if (fly.getFlightSection(iClass) != null) {
+                    if (fly.sameDay(iDay, iMonth, iYear)) {
+                        System.out.println("Available Flights and Pricing: ");
+                        this.section = fly.getFlightSection(iClass);
+                        if (section.hasAvailableSeats()) {
+                            System.out.println("FlightID: " + fly.getID() + " Price: $" + section.getPrice());
+                            return;
+                        }
+                        else
+                        {
+                            System.out.println("Flight does not have any available seats!");
+                            return;
+                        }
                     }
                 }
-                else
-                {
-                    System.out.println("Given class must exist within the needed flight!");
-                    return;
-                }
-            }
-            else
-            {
-                System.out.println("Given departure and arrival cites must exist!");
             }
         }
+        System.out.println("No matching flights exist!");
     }
 
 
