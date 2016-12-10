@@ -347,7 +347,6 @@ public class AirTravelFactory extends TravelFactory{
             }
             if(airlineGood) {
                 for (Flight fly : flights) {
-                    Boolean isAflight = false;
                     if (fly.getID().equals(iFlight)) {
                         if(fly.getFlightSection(SeatClass.FIRST) != null)
                         {
@@ -361,11 +360,52 @@ public class AirTravelFactory extends TravelFactory{
                         {
                             fly.getFlightSection(SeatClass.BUSINESS).setPrice(price);
                         }
-                        isAflight =true;
+                        return;
                     }
-                    else if(!isAflight)
+                    else
                     {
                         throw new IllegalArgumentException("Flight ID must match!");
+                    }
+                }
+            }
+            else
+            {
+                throw new IllegalArgumentException("Airline name is not valid.");
+            }
+        }
+        catch(IllegalArgumentException e){
+            System.out.println("Could not change price. " + e.getMessage());
+        }
+    }
+
+    @Override
+    public void changeSeatClassPrice(String iAirline, String iOrgin, String iDestination, SeatClass iClass, int price) {
+        Boolean airlineGood = false;
+        try{
+            for(Airline sAirline:airlines)
+            {
+                if (sAirline.getName().equals(iAirline))
+                {
+                    airlineGood = true;
+                }
+            }
+            if(airlineGood) {
+                for (Flight fly : flights) {
+                    if (fly.getArrivalCity().equals(iDestination)&&fly.getDepartureCity().equals(iOrgin))
+                    {
+                        if(fly.getFlightSection(iClass)!= null) {
+                            this.section = fly.getFlightSection(iClass);
+                            this.section.setPrice(price);
+                            return;
+                        }
+                        else
+                        {
+                            throw new IllegalArgumentException("Given class must exist within the selected flight!");
+                        }
+                    }
+                    else
+                    {
+                        throw new IllegalArgumentException("Airline must have a flight with given departure and arrival cites1!");
                     }
                 }
             }
