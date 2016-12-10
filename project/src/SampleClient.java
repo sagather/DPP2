@@ -449,7 +449,7 @@ public class SampleClient{
 
     public static void shipCreate(){
 
-        //eeeeeeeeeeeeeh... waaht
+        //travel2.
 
     }
 

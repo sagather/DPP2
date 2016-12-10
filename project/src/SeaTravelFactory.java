@@ -64,7 +64,7 @@ public class SeaTravelFactory extends TravelFactory{
         }
         catch (IllegalArgumentException e)
         {
-            System.out.println("Cruise: "+ cruise + " This airline was not created due an issue with the name. " + e.getMessage());
+            System.out.println("Cruise: "+ cruise + " This cruise was not created due an issue with the name. " + e.getMessage());
         }
 
     }
@@ -135,7 +135,7 @@ public class SeaTravelFactory extends TravelFactory{
 
     private void createTrip(String shipName, String cruiseName, String departurePort, String arrivalPort,int dYear,int dMonth, int dDay,int aYear, int aMonth, int aDay){
 
-        Boolean airlineGood = false;
+        Boolean cruiseGood = false;
         Boolean departureGood = false;
         Boolean arrivalGood = false;
         Boolean dayGood = false;
@@ -145,7 +145,7 @@ public class SeaTravelFactory extends TravelFactory{
             for(Cruise c:cruises)
             {
                 if (c.getName().equals(cruiseName)) {
-                    airlineGood = true;
+                    cruiseGood = true;
                 }
             }
             //invalid airports
@@ -173,14 +173,14 @@ public class SeaTravelFactory extends TravelFactory{
                 monthGood = true;
             }
 
-            if(airlineGood && arrivalGood  && departureGood && dayGood && monthGood ) {
+            if(cruiseGood && arrivalGood  && departureGood && dayGood && monthGood ) {
                 Trip t = new Trip(shipName, cruiseName, departurePort, arrivalPort, dYear, dMonth, dDay,aYear,aMonth, aDay);
                 System.out.println("Creation of Trip " + shipName + " was successful.");
                 trips.add(t);
             }
             else
             {
-                if(!airlineGood)
+                if(!cruiseGood)
                 {
                     throw new IllegalArgumentException("Cruise must match an existing Cruise name!");
                 }
